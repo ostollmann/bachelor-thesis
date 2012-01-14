@@ -1,0 +1,222 @@
+\documentclass[paper=a4,twoside=true,fontsize=11pt,numbers=noendperiod,chapterprefix=false]{scrbook}
+
+%\usepackage[ngerman]{babel} %use this if you write you thesis in GERMAN!
+%\usepackage[latin1]{inputenc}  %this is required if you want to use german umlauts in windows!
+%\usepackage[applemac]{inputenc} % umlauts under Mac
+%\usepackage[utf8]{inputenc} % umlauts if you have utf8 (recommended)
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[footnotesize,sl,SL,hang,tight]{subfigure}  
+%\usepackage{float} %for positioning figures with H
+\usepackage{longtable}
+\usepackage[font={small,sl},hang,labelfont=bf]{caption} %italic,hanging,normalize   //margin=1cm
+%\usepackage{captcont} % continue subfigures over several pages
+\usepackage{booktabs}
+%\usepackage{showkeys} % shows the labels above the references for easier development
+
+% modify headings:
+\usepackage{scrpage2}
+\KOMAoptions{headinclude}
+
+% Font packages:
+\usepackage{times}
+\usepackage{helvet}   % sets sans serif font
+\usepackage[T1]{fontenc}
+
+\usepackage{import}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+%PDF hyperref config
+\ifpdfoutput{%
+	\usepackage[pdftex]{graphicx}
+	\usepackage[]{pdfpages} %for including full pdf pages
+	\usepackage[pdftex,
+		bookmarks,
+		bookmarksopen=true,
+		bookmarksnumbered=true,
+		pdfauthor={My Name},
+		pdftitle={Thesis Title},
+		colorlinks,
+		linkcolor=black,
+		citecolor=black,
+		filecolor=black,
+		urlcolor=black,
+		anchorcolor=black,
+		menucolor=black,
+		breaklinks=true,
+		pageanchor=true, %for jumping to a page
+		plainpages=false,
+		pdfpagelabels=true]{hyperref}
+	\pdfcompresslevel=9
+	\pdfoutput=1
+	\pdfminorversion=6
+	\DeclareGraphicsExtensions{.pdf,.png}
+}{
+	\usepackage{graphicx}
+}
+\usepackage{rotating} % rotate figures, must be loaded after graphicx!
+
+
+\bibliographystyle{alpha}
+
+% Uncomment the chapter / section you are working on.
+%
+%\includeonly{chapter}
+%\pagestyle{useheadings}
+
+% A4 page layout
+% A4 = 210 x 297 mm /	 1in = 25.4mm / margin becomes margin + 1in in latex!
+\topmargin -12.7mm
+\textheight 234.0mm
+\textwidth 160.0mm
+\oddsidemargin 4.57mm
+\evensidemargin -5.59mm
+\parskip 2.54mm
+\parindent 0mm
+\headsep 15mm
+%\footskip 10mm
+
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\baselinestretch}{1}
+
+\input{preamble}
+
+\begin{document}
+
+%% Define leading chapter pages
+%
+\newpagestyle{mychapterpagestyle}{{\protect\mychpstyleintl}{\protect\mychpstyleintl}}{}
+\newpagestyle{myappendixpagestyle}{{\protect\mychpstyleintl}{\protect\mychpstyleintl}}{}
+%%
+
+%% macros
+\newcommand{\mykeyword}[0]{my long text}
+%reference macros -> change this if you write you thesis in an other language!!!
+\newcommand{\chpref}[1]{Chapter \ref{#1}}
+\newcommand{\secref}[1]{Section \ref{#1}}
+%\newcommand{\equref}[1]{Equation \ref{#1}} %better use builtin \eqref{} !!!
+\newcommand{\figref}[1]{Figure \ref{#1}}
+\newcommand{\tabref}[1]{Table \ref{#1}}
+\newcommand{\apxref}[1]{Appendix \ref{#1}}
+%%
+
+%---------------
+%% Title page:
+%---------------
+\pagenumbering{arabic} %pagenumbering for title
+\setcounter{page}{-1}  %required in order not to have more pages with pagenumber 1
+%\title{Book Title}
+%\author{My Name}
+%\date{January 2007}
+%\maketitle
+%\clearemptydoublepage
+% --- selfmade version ----
+\begin{titlepage}
+	\topmargin -3.8cm
+	\oddsidemargin 0.0cm
+	\evensidemargin 0.0cm
+	\centering
+%	\begin{minipage}{0.49\textwidth}
+%		\vspace{0pt}
+%		\includegraphics*[width=0.8\textwidth]{figures/title/ETH_logo}
+%		\vfill
+%	\end{minipage}
+%	\begin{minipage}{0.49\textwidth}
+%		\vspace{0pt}
+%		\hfill
+%		\includegraphics*[width=0.6\textwidth]{figures/title/logo_inspire_icvr}
+%	\end{minipage}
+%	\\
+	\includegraphics*[width=0.38\textwidth]{media/ETH_logo} \hfill
+	% Choose your logo here!
+	\includegraphics*[width=0.21\textwidth]{media/logo_inspire_iwf} \\
+	%\includegraphics*[width=0.21\textwidth]{figures/title/logo_inspire_ics} \\
+	%\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_icvr} \\
+	%\includegraphics*[width=0.24\textwidth]{figures/title/logo_inspire_irpd} \\
+	\vspace{8.2cm}
+	\Huge
+	\textbf{\textsf{Automatic extraction of POMDPs from Simulink models}} \\[2.0cm]
+	%\includegraphics*[width=0.4\textwidth]{figures/title/mytitlefigure} 
+	\vspace{2.0cm}
+	\sffamily
+	\Large
+	Oliver Stollmann
+	\\[0.8cm]
+	\large
+	Bachelor Thesis
+	\\
+	2011
+	\\[0.8cm] %anstatt 1.5cm
+	Bastian Migge
+	\\
+	PD Dr. habil. Andreas Kunz
+	\\[0.5cm]
+	Prof. Dr. Konrad Wegener
+	\vfill
+\end{titlepage}
+\clearemptydoublepage
+%%
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\import{src/}{abstract}
+
+%task description
+\cleardoublepage
+%\includegraphics[viewport=3cm 0cm 20cm 27.5cm]{task_description}
+\includepdf{media/task_description.pdf}
+\cleardoublepage
+
+\import{src/}{acknowledgment}
+
+\tableofcontents
+\cleardoublepage
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\cleardoublepage
+
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\cleardoublepage
+
+\pagenumbering{arabic}
+\renewcommand*{\chapterpagestyle}{mychapterpagestyle}
+\renewcommand*{\chapterformat}{} % show chapter titles only (no numbers)
+% \setchapterpreamble[o]{...}  unfortunately does not move the \chapter output downwards
+
+% --------------------------------------------------------------------------------------------------------------------------------------------------
+% ---------------------------------------------------------------- MAIN PART ----------------------------------------------------------------
+% --------------------------------------------------------------------------------------------------------------------------------------------------
+\import{src/}{introduction}
+\import{src/}{related_work}
+\import{src/}{motivation}
+\import{src/}{methodology}
+\import{src/}{results-discussion}
+\import{src/}{conclusion}
+\import{src/}{outlook}
+
+
+% --------------------------------------------------------------------------------------------------------------------------------------------------
+% --------------------------------------------------------------------------------------------------------------------------------------------------
+% --------------------------------------------------------------------------------------------------------------------------------------------------
+
+\appendix
+\clearpage
+\renewcommand*{\chapterpagestyle}{myappendixpagestyle}
+\import{src/}{appendix}
+% ---- END MAIN PART ----
+
+%bibliography:
+\clearpage
+\renewcommand*{\chapterpagestyle}{empty}
+%\nocite{*}
+\bibliography{references}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+
+\end{document}
