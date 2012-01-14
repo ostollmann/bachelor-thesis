@@ -1,3 +1,17 @@
 \subsubsection{Markov Decision Processes}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+Markov Decision Processes (MDPs) are an extension of Markov Chains and describe \textit{controllable} probabilistic dynamic systems. They are defined as a four touple $(S,A,P,R)$ with:
+\begin{itemize}
+\item $S$: set of states,
+\item $A$: set of actions,
+\item $P$: conditional transition probabilities,
+\item $R$: rewards.
+\end{itemize}
+
+\subsubsubsection{Actions: Decisions}
+
+MDPs are used to model probabilistic systems that can be influenced through decision-taking. These decisions are represented as actions and have a direct influence on the transition probabilities of the system. Transition probabilities are now three-dimensional and depend not only on the current state, but also on the action being taken; $Pr(X_{n+1}=x_n|X_n=x,a_n=a)$ is the probability of going to state $x_n$ in the next step given that the system is currently in state $x$ and action $a$ has been chosen.
+
+\subsubsubsection{Reward Model}
+
+\subsubsubsection{Optimization}
