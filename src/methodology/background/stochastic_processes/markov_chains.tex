@@ -1,3 +1,70 @@
 \subsubsection{Markov Chains}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+A Markov Chain is a certain type of stochastic process that describes the dynamics of a probabilistic system by defining the conditional transition probabilities \(Pr(X_{n+1}=x|X_n=x_n)\) between members of a finite or infinite state-space.
+
+
+\subsubsubsection{Markov Property}
+
+Markov Chains possess the Markov Property,
+
+\[
+Pr(X_{n+1}=x|X_1=x_1,X_2=x_2,...,X_n=x_n) = Pr(X_{n+1}=x|X_n=x_n),
+\]
+
+which states that the current conditional transition probabilities are independent of the systems past states.
+
+\subsubsubsection{Transition Probability Matrix for Finite-State Markov Chains}
+
+If a Markov Chain's state-space is finite the transition probabilities between states can be represented in a transition probability matrix where the probability of going from state i to state j, $Pr(X_{n+1}=j|X_n=i)$, is equal to the $(i,j)$ element of the matrix:
+
+\[
+ Pr =
+ \begin{pmatrix}
+  Pr(X_{n+1}=1|X_n=1) & Pr(X_{n+1}=2|X_n=1) & \cdots & Pr(X_{n+1}=N|X_n=1) \\
+  Pr(X_{n+1}=1|X_n=2) & Pr(X_{n+1}=2|X_n=2) & \cdots & Pr(X_{n+1}=N|X_n=2) \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  Pr(X_{n+1}=1|X_n=N) & Pr(X_{n+1}=2|X_n=N) & \cdots & Pr(X_{n+1}=N|X_n=N)
+ \end{pmatrix}
+\]
+
+\subsubsubsection{Markov Chain Example}
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+
+  \node[state] (A)                    {A};
+  \node[state] (B) [below left of=A]  {B};
+  \node[state] (C) [below right of=A] {C};
+
+   \path (A) edge [loop above]    node              {0.2} (A)
+         (A) edge [bend right=20] node[above=0.3cm] {0.7} (B)
+         (A) edge [bend right=20] node              {0.1} (C)
+         (B) edge [bend right=20] node              	{0.0} (A)
+         (B) edge [loop left]     node              {0.0} (B)
+         (B) edge [bend left=20]  node              {1.0} (C)
+         (C) edge [bend right=20] node[above=0.3cm] {0.5} (A)
+         (C) edge [bend left=20]  node[above]       {0.0} (B)
+         (C) edge [loop right]    node              {0.5} (C)
+\end{tikzpicture}
+\end{center}
+\caption{Three-State Markov Chain}
+\label{3statemarkovchain}
+\end{figure}
+
+Figure~\ref{3statemarkovchain} shows an example of a three state Markov Chain. The transition probabilities matrix is as follows:
+
+\[
+ \begin{pmatrix}
+  0.2 & 0.7 & 0.1 \\
+  0 & 0 & 1 \\
+  0.5 & 0 & 0.5
+ \end{pmatrix}
+\]
+
+Looking at this transition probability matrix or Figure~\ref{3statemarkovchain}, we can, for example, deduce that if the system is currently in state A the probability of transitioning to state B in the next step is 0.7, the probability of transitioning to state C is 0.1 and the probability of remaining in state A is 0.2. Interestingly, because the second row only contains a single non-zero value, which must thus be equal to 1, the transition from state B is entirely deterministic, meaning that it will always be the same.
+
+
+
