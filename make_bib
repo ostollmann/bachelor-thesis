@@ -1,3 +1,1 @@
 pdflatex -interaction=batchmode thesis.tex ; bibtex thesis.aux ; pdflatex -interaction=batchmode thesis.tex 
-pdflatex -interaction=batchmode thesis.tex
-pdflatex -interaction=batchmode thesis.tex ; bibtex thesis.aux ; pdflatex -interaction=batchmode thesis.tex 
