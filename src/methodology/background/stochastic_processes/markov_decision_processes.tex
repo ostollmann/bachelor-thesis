@@ -14,4 +14,26 @@ MDPs are used to model probabilistic systems that can be influenced through deci
 
 \subsubsubsection{Reward Model}
 
+MDPs also add the idea of rewards to Markov Chains. Although rewards are not necessary to describe \textit{controllable} dynamic systems, they are the key to optimization. Every transition probability is paired with a reward, or cost (negative reward), value; $R(s,s',a)$ is the reward (scalar) that the system receives when it transitions from state $s'$ to state $s$ given that action $a$ was chosen.
+
+\textit{Note: It is important to understand that rewards do not have a probabilistic nature, but rather that the combination of conditional transition probabilities and rewards provide the basis for stochastic optimization in MDPs (see next section).}
+
 \subsubsubsection{Optimization}
+
+MDPs can be used to optimize decision making. The combination of a system description and an associated reward model allow us to calculate the optimal decision to take in a given situation. The aim of this optimization is to produce a \textit{policy}, $\pi(s)$, that defines exactly which action should be taken if the system finds itself in a certain state.
+
+The computation of this policy requires us to define what we are trying to optimize. In most cases optimization simply aims for the maximization of rewards (or minimization of costs) over a certain decision span. This optimization goal is defined in a so called reward function, the most common of which is the \textit{expected discounted total reward} (infinite horizon),
+
+\[
+\sum_{t=0}^{\infty} {\gamma}^{t}R_{a_t}(s_t,s_{t+1}),
+\]
+
+with:
+\begin{itemize}
+\item $\gamma$: discount factor, where $\gamma\in(0,1]$,
+\item $R_{a_t}(s_t,s_{t+1})$: reward received in $t+1$ for taking action $a$ from state $s_t$ at time $t$.	
+\end{itemize}
+
+The \textit{expected discounted total reward} seen above is only one of many possible reward functions. It represents the idea that we value the total sum of rewards, but prefer rewards received earlier to rewards received later; \textit{rewards are discounted over time}.
+
+Now that we have both, the set of rewards received and the reward function - definition of how we \textit{value} these rewards - we can compute an optimal policy for the decision maker. The computation of this policy can be done with either \textit{linear programming} or, more commonly, with \textit{dynamic programming}. An in-depth analysis of these algorithms is not a part of this text, but a reader may wish to consult the literature \cite{puterman} that deals with \textit{value-} and \textit{policy-iteration}. The result of the optimization is, as described above, a policy $\pi(s)$ that maps states to actions.
