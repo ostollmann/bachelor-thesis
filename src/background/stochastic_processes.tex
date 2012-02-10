@@ -1,12 +1,19 @@
 \section{Stochastic Processes}
 
-Stochastic processes describe systems that change probabilistically. Unlike deterministic processes, where the same initial conditions and excitation will always lead to the same result, stochastic processes develop randomly. This means that two dynamic systems that start at the same state and are given the exact same inputs may differ in their output.
+A stochastic process is a set of random variables indexed by a parameter. If the indexing parameter is time and the random variables represent possible states then a random process describes a randomized dynamic system that reaches certain states at certain times. The formal definition of a time-indexed stochastic process is a collection $(X_t: t \in T)$ on a probability space where $t$ is the time-index and $X_t$ a random variable on the state space $X$.
 
-Stochastic processes are useful in two cases. Firstly to model systems that are physically random (quantum physics) and secondly to model abstractions of reality. The latter case occurs when we choose to model a system probabilistically because we either don't understand the underlying dynamics or because we choose to model them probabilistically instead of deterministically.
+A number of properties allow a more detailed classification of random processes: if the index set $T$ is countable the process is \textit{discrete} and if it is not countable the process is \textit{continuous}, if the state space $X$ is finite the process has a \textit{finite state space} and if the random variable $X_t$ represents values from a countable set the process values are \textit{discrete} and otherwise \textit{continuous}.
 
-The next three sections build upon each other, starting with Markov Chains, then extending these to Markov Decision Processes and finally to Partially Observable Markov Chains.
+A common example of stochastic processes is Fractional Brownian motion as seen in Figure~\ref{fracbromotion}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[height=8cm]{media/fractional_brownian_motion}\\
+\end{center}
+\caption{Fractional Brownian motion with Hurst parameter of $0.4$}
+\label{fracbromotion}
+\end{figure}
 
 \import{src/background/stochastic_processes/}{markov_chains}
 \import{src/background/stochastic_processes/}{markov_decision_processes}
 \import{src/background/stochastic_processes/}{partially_observable_markov_decision_processes}
-    

@@ -1,5 +1,7 @@
 \section{Dynamic Systems}
 
+\label{sec:dynamicsystems}
+
 This section covers deterministic and randomized dynamic systems in theory and gives a few intuitive examples of dynamic systems.
 
 Dynamic systems are systems whose development over time can be described by a single or a set of mathematical equations. Although these equations may not always be symbolically solvable they describe the system's dynamics perfectly. Examples include the time-varying temperature of an object as it is placed in the oven or the voltage across an inductor.
@@ -18,11 +20,11 @@ Dynamic systems are systems whose development over time can be described by a si
 \node (length) at (1.1,-2) {$l$};
 \end{tikzpicture}
 \end{center}
-\caption{1-Dimensional Mathematical Pendulum}
+\caption{1-dimensional mathematical pendulum}
 \label{1dpendulum}
 \end{figure}
 
-A common example of dynamic systems is the mathematical pendulum see in Figure~\ref{1dpendulum}. By considering the forces on the pendulum or it's energy it is quite simple to deduce the following differential equation to describe the system:
+A common example of dynamic systems is the ideal one-dimensional mathematical pendulum seen in Figure~\ref{1dpendulum}. By considering the forces on the pendulum or it's energy it is quite simple to deduce the following differential equation to describe the system:
 
 \[
 0 = \frac{g}{l}\cdot sin(\phi(t))+\ddot{\phi}(t)
@@ -34,7 +36,7 @@ With the small-angles assumption
 sin(\phi(t))\approx\phi(t)
 \]
 
-the solution is of the differential equation is
+the solution of the differential equation is
 
 \[
 \phi(t) = \hat{\phi} \cdot sin( \sqrt{\frac{g}{l}} \cdot t + {\phi}_0)
@@ -52,6 +54,30 @@ q[n+1] &=\left q[n] + x[n] + e[n]\right \nonumber\\
 y[n] &=\left q[n] + x[n]\right \nonumber
 \end{align}
 
-where $x[n]$ is the input, $e[n]$ is white noise and $y[n]$ the output. If this system is provided with the same input signal twice, the resulting output signal is likely to be slightly different. This is caused by the inherint randomness of a white noise input.
+where $x[n]$ is the input, $e[n]$ is white noise and $y[n]$ the output. If this system is provided with the same input signal twice, the resulting output signal is likely to be slightly different. This is caused by the inherit randomness of a white noise input.
+
+The above example touches on an important point in the field of system dynamics. The pendulum example differs from the white noise example because the former is defined in continuous time whilst the latter is defined in discrete time. A continuous time system is defined for any time value $t$. A discrete time system is, on the other hand, only defined on a subset of the infinite time line $T$, at discrete times $n \in N \subset T$. A simple example to illustrate this point:
+
+\begin{align}
+y(t) &=\left sin(t),\right \nonumber \\
+y[n] &=\left sin(n) = sin(n*T_s). \right \nonumber
+\end{align}
+
+Here $y[n]$ is the discrete-time version of the continuous time system $y(t)$. As one can see, $y[n]$ is produced by \textit{sampling} $y(n)$ with the sampling frequency $T_s$. This means that whilst $y(t)$ is defined for all times $t$, $y[n]$ is only defined for the times 
+
+\begin{align}
+&n \in N \nonumber \\
+where& \nonumber \\
+N &= n\cdot T_s\ \forall\ n\ \in\ \mathbb{Z} \nonumber \\
+  &= [-\infty \cdot T_s,-(\infty  -1) \cdot T_s,\cdots,-1 \cdot T_s,0,-1 \cdot T_s,\cdots,(\infty-1) \cdot T_s,\infty \cdot T_s]. \nonumber \\
+\end{align}
+\]
+
+It is easy to see here that a discrete time system contains less information than a continuous time signal. Nonetheless discrete time signals are prevalent because computers can only deal with digital (ie. discrete) time signals.
+
+The last important property of dynamic systems is the notion of \textit{state}. A system's state is the smallest set of internal and/or external values that represent the entire state of the system. This means that a system's state completely describes that systems condition at a certain time. Coming back to the pendulum example it is clear that the entire system's condition can be described by two variables, the current angle $\phi(t)$ and the current angular velocity $\dot{\phi}(t)$. A definition of these two values at time $t$ completely define the system's condition in past and future times $t\pm\tau$.
 
 \textit{Deterministic dynamic systems} and \textit{randomized dynamic systems} are two extremely useful mathematical constructs and serve as the basis of the more advanced theory of the next few sections.
+
+
+

@@ -1,21 +1,14 @@
 \subsection{Markov Chains}
 
-A Markov Chain is a certain type of stochastic process that describes the dynamics of a probabilistic system by defining the conditional transition probabilities \(Pr(X_{n+1}=x|X_n=x_n)\) between members of a finite or infinite state-space.
-
-
-\subsubsection{Markov Property}
-
-Markov Chains possess the Markov Property,
+A Markov Chain is a stochastic process that describes the dynamics of a probabilistic system by defining the conditional transition probabilities \(Pr(X_{n+1}=x|X_n=x_n)\) between members of a finite or infinite state-space. Markov chains posess the Markov Property,
 
 \[
 Pr(X_{n+1}=x|X_1=x_1,X_2=x_2,...,X_n=x_n) = Pr(X_{n+1}=x|X_n=x_n),
 \]
 
-which states that the current conditional transition probabilities are independent of the systems past states.
+which states that the current conditional transition probabilities are dependent only on the system's current state.
 
-\subsubsection{Transition Probability Matrix for Finite-State Markov Chains}
-
-If a Markov Chain's state-space is finite the transition probabilities between states can be represented in a transition probability matrix where the probability of going from state i to state j, $Pr(X_{n+1}=j|X_n=i)$, is equal to the $(i,j)$ element of the matrix:
+If a Markov Chain's state-space is \textit{finite} the transition probabilities between states can be represented in a \textit{transition probability matrix} where the probability of going from state $i$ to state $j$, $Pr(X_{n+1}=j|X_n=i)$, is equal to the $(i,j)$ element of the matrix:
 
 \[
  Pr =
@@ -26,8 +19,6 @@ If a Markov Chain's state-space is finite the transition probabilities between s
   Pr(X_{n+1}=1|X_n=N) & Pr(X_{n+1}=2|X_n=N) & \cdots & Pr(X_{n+1}=N|X_n=N)
  \end{pmatrix}
 \]
-
-\subsubsection{Markov Chain Example}
 
 \begin{figure}[h!]
 \begin{center}

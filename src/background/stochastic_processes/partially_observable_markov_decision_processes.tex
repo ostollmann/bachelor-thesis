@@ -10,11 +10,7 @@ A Partially Observable Markov Decision Process (POMDP) is a further extension of
 \item $R$: rewards.
 \end{itemize}
 
-\subsubsection{Observations}
-
 An observation is any system output that the decision maker can \textit{observe}. MDPs assume that the decision maker has the ability to \textit{see} what state the system is currently in, whereas POMDPs make no such assumption, relying instead on partial observations.
-
-\subsubsection{Optimization}
 
 Although the reward function for MDPs and POMDPs remains the same, optimization differs in that the output is no longer a policy that maps \textit{states} to \textit{actions}, but rather a policy that maps \textit{observations} to \textit{actions}. This more realistically models reality where decision makers often do not have the ability to observe the complete state of a system, but rather receive only partial information (example: sensor data). The result of this added observation dimension is that the decision agent must now maintain a constantly changing belief state, that is initially defined and then continuously updated as actions are taken and observations received.
 

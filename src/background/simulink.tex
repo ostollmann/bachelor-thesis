@@ -1,16 +1,56 @@
 \section{Simulink}
+\label{sec:simulink}
 
 Simulink is a commercial modelling and simulation tool developed by MathWorks. It is an industry standard in the field of control engineering. Models are created graphically in a block-based user interface and simulation results can be easily be analysis with plots or mode advanced tools. Additionally a large number of internal and third-party libraries further simplify modelling, especially in specialized fields such a music or aerospace.
 
 Simulink is also tightly integrated in MATLAB, MathWorks' commercial numerical computation tool, which is widely used in academia and industry in many different fields. Simulink runs inside the MATLAB environment and can thus easily be controlled, tested or extended using the MATLAB programming language.
 
 \begin{figure}[simulink_screenshot]
-\includegraphics[width=16cm]{media/simulink_screenshot.png}
-% \includegraphics*[width=0.38\textwidth]{media/ETH_logo} \hfill
+\begin{center}
+\includegraphics[width=15cm]{media/simulink_screenshot.png}
 \caption{Screenshot of Simulink}
 \label{simulink_screenshot}
+\end{center}
 \end{figure}
 
-Simulink is especially useful for engineers because no programming knowledge is required even for modelling complex dynamic systems (example: power plants). Default configuration options and an entirely graphical interface hide most implementation details (simulation details, solver types, et). A graphical modelling interface is also useful because it allows a more intuitive understanding of the model, unlike the large mathematical matrices used in Markov Chains, Markov Decision Processes or Partially Observable Markov Decision Processes.
+Simulink is especially useful for engineers because no programming knowledge is required even for modelling complex dynamic systems (eg. power plants). Default configuration options and an entirely graphical interface hide most implementation details (simulation details, solver types, et). A graphical modelling interface is also useful because it allows a more intuitive understanding of the model, unlike the large mathematical matrices used in Markov Chains, Markov Decision Processes or Partially Observable Markov Decision Processes. Figure~\ref{simulink_screenshot} shows an example of the MATLAB environment, a Simulink model and plots of simulation results.
 
-Figure~\ref{simulink_screenshot} shows an example of the MATLAB environment, a Simulink model and plots of simulation results.
+Because this work deals extensively with Simulink a short introductory example may be helpful. Figure~\ref{pendumodelscreen} shows the pendulum model from section~\ref{sec:dynamicsystems} (see Figure~\ref{1dpendulum}) implemented in Simulink through a series of integrators, a $sin$ function and two contant parameters, the gravitational acceleration $g$ and the length of the pendulum $l$. The initial phase is set to zero and an initial condition can be defined in either of the two integrators. For this simulation the angular velocity was used as an initial condition and set to $1\frac{rad}{s}$. Figure~\ref{penduresponse} shows two plots of the system response once with a gravitational constant of $9.8\frac{m}{s^2}$ and once with a gravitational constant of $19.6\frac{m}{s^2}$.
+
+\begin{figure}[pendumodelscreen]
+\begin{center}
+\includegraphics[height=9cm]{media/pendmodelscreen.png}
+\caption{1-dimensional mathematical pendulum model}
+\label{pendumodelscreen}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[penduresponse]
+\begin{center}
+\includegraphics[width=15cm]{media/pendulum_response.png}
+\caption{1D mathematical pendulum response}
+\label{pendu98}
+\end{center}
+\end{figure}
+
+
+% \begin{figure}[pendu98]
+% \begin{center}
+% \includegraphics[height=8cm]{media/pendulum_98.png}
+% \caption{1D pendulum response (graviational constant $g=9.8\frac{m}{s^2}$)}
+% \label{pendu98}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}[pendu196]
+% \begin{center}
+% \includegraphics[height=8cm]{media/pendulum_196.png}
+% \caption{1D pendulum response (graviational constant $g=19.6\frac{m}{s^2}$)}
+% \label{pendu196}
+% \end{center}
+% \end{figure}
+
+As can be seen in this example Simulink provides a very intuitive platform for modelling and simulating dynamic systems. Although the above example model is entirely deterministic, it is trivially easy to add randomness to deterministic models in Simulink.
+
+

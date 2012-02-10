@@ -1,3 +1,73 @@
 \section{Extraction}
 
-Talking about Extraction of MDPs by brute force simulation approach.
+Simulink models represent dynamic systems in a number of different ways. Systems can be described through a graphical representation of differential equations (see example in section~\ref{sec:simulink}). Systems can also be described by transfer functions or state machines. Simulink offers many different representational forms. Almost all of these representational forms have in common that they represent \textit{rules} of some sort. When asked to simulate these systems Simulink solves these \textit{rules} in real time and produces the system response. MDPs and POMDPs are much simpler construct that do not require real-time solvers because the system dynamics is represented as simple state transitions probabilities. Given an MDP or a POMDP representation of a dynamic system, the simulation thereof is merely a question of random sampling.
+
+In order to build these transition probability matrices the \textit{extractor} must simply simulate and observe the given Simulink model enough times and with enough different inputs to build up this transition probability matrix. In parallel the \textit{extractor} observes the Simulink model's reward and observation outputs and incrementally builds the reward matrix and the conditional observation probability matrix. The following sections go through each of the steps required during this extraction and gives a short high-level overview of the main functions.
+
+\subsection{Inputs and actions}
+
+MDPs and POMDPs model \textit{controllable} dynamic systems, where a decision taker can influence the system's development over time. Simulink models usually have a single or multiple inputs that are sampled in every time-step and used as input for the given system. In order to extract transition probabilities that depend on the action chosen by the decision maker, simulations must be observed for each of the possible actions. This means that for every state the system may find itself in, simulations must be run with every possible action a decision maker may choose to take. In order to guarantee that the MDP or POMDP will be able to represent the dynamics of the system correctly this means that every possible permutation of permitted input values must be used during the extraction.
+
+A simple example of this can be made with the \textit{ideal gas law} system,
+\[
+p\cdot V = n \cdot R \cdot T,
+\]
+
+where $p\ [Pa]$ is the pressure, $V\ [m^3]$ is the volume, $n\ [mole]$ is the mole quantity, $ R = 8.314\ [J\cdot K^{-1} \cdot mol^{-1}]$ is the universal gas constant and $T\ [K]$ the temperature. Although this system is not dynamic --- it does not change over time --- it is sufficient in this context.
+
+If a conversion of this system to an MDP or a POMDP were necessary with the following configuration,
+
+\begin{itemize}
+\item - inputs: pressure $p$, volume $V$, mole quantity $n$,
+\item - output: temperature $T$,
+\end{itemize}
+the action set of an MDP or a POMDP would be defined as the cartesian product of all input sets. If the maximum of each input $x$ were defined as $x_{max}$ and it's minimum as $x_{min}$, the action set would be:
+\begin{align}
+A &=\left \Pi \times \Lambda \times \Gamma \right \nonumber\\
+&=\left \{(p,V,n)\ |\ p\ \in \Pi\ and\ V  \in \Lambda\ and\ n \in \Gamma\},\right \nonumber \\
+where&\left \right \nonumber \\
+\Pi &=\left  [p_{min},(p_{min}+\pi),(p_{min}+2\cdot\pi),\cdots,(p_{min}+(N-1)\cdot\pi),p_{max}]] \right \nonumber \\
+\Lambda &=\left  [V_{min},(V_{min}+\lambda),(V_{min}+2\cdot\lambda),\cdots,(V_{min}+(N-1)\cdot\lambda),V_{max}]] \right \nonumber \\
+\Gamma &=\left  [n_{min},(n_{min}+\gamma),(n_{min}+2\cdot\gamma),\cdots,(n_{min}+(N-1)\cdot\gamma),n_{max}]] \right \nonumber \\
+\pi &=\left \frac{p_{max}-p_{min}}{N_p-1} \right \nonumber \\
+\lambda &=\left \frac{V_{max}-V_{min}}{N_V-1} \right \nonumber \\
+\gamma &=\left \frac{n_{max}-n_{min}}{N_n-1} \right \nonumber
+\end{align}
+
+with $N_i$ being the number of different input values required between the maximum and minimum values of input $x_i$ (see section XXXX discretization). The cardinality of $A$ (ie. the number of actions $a \in A$) is
+
+\[
+|A| = \prod_{i \in I} N_i.
+\]
+
+
+An example action set with numeric values could be
+
+\begin{align}
+ A &=\left \begin{pmatrix}
+  (p=0.0,V=0.0,n=0.1) \\
+  (p=0.0,V=0.0,n=0.3) \\
+  (p=0.0,V=0.0,n=0.5) \\
+  \vdots\\
+  (p=4.3,V=2.0,n=0.9) \\
+  (p=4.3,V=3.0,n=0.1) \\
+  (p=4.3,V=3.0,n=0.3) \\
+  \vdots\\
+  (p=9.9,V=9.0,n=0.5) \\
+  (p=9.9,V=9.0,n=0.7) \\
+  (p=9.9,V=9.0,n=0.9) \\
+ \end{pmatrix}\right \nonumber, \\
+ where &=\left \right \nonumber \\
+ p_{min} &=\left 0.0,\ p_{max} = 9.9,\ \pi = 0.1    ,\ N_p = 100 \right \nonumber \\
+ V_{min} &=\left 0.0,\ V_{max} = 9.0,\ \lambda = 1.0,\ N_V = 10 \right \nonumber \\
+ n_{min} &=\left 0.1,\ n_{max} = 0.9,\ \gamma = 0.2 ,\ N_n = 5\right \nonumber
+\end{align}
+
+In this case the number of actions comes to 
+\[
+|A| = \prod_{i \in (p,V,n)} N_i = N_p \cdot N_V \cdot N_n = 100 \cdot 10 \cdot 5 = 5000.
+\]
+
+
+
+
