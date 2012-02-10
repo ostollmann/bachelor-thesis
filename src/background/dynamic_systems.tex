@@ -1,0 +1,57 @@
+\section{Dynamic Systems}
+
+This section covers deterministic and randomized dynamic systems in theory and gives a few intuitive examples of dynamic systems.
+
+Dynamic systems are systems whose development over time can be described by a single or a set of mathematical equations. Although these equations may not always be symbolically solvable they describe the system's dynamics perfectly. Examples include the time-varying temperature of an object as it is placed in the oven or the voltage across an inductor.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\usetikzlibrary{patterns}
+\tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+\node (ground) [ground] at (0,0) {};
+\node (angle) at (0.35,-2) {$\phi$};
+\draw (0,-0.15) -- (1.4,-4);
+\draw[dashed] (0,-0.15) -- (0,-4.5);
+\draw[->,>=stealth',semithick] (0.5,-1.5) arc[radius=1.2, start angle=300, end angle=275];
+\fill[black] (1.4,-4) circle (.15);
+\node (length) at (1.1,-2) {$l$};
+\end{tikzpicture}
+\end{center}
+\caption{1-Dimensional Mathematical Pendulum}
+\label{1dpendulum}
+\end{figure}
+
+A common example of dynamic systems is the mathematical pendulum see in Figure~\ref{1dpendulum}. By considering the forces on the pendulum or it's energy it is quite simple to deduce the following differential equation to describe the system:
+
+\[
+0 = \frac{g}{l}\cdot sin(\phi(t))+\ddot{\phi}(t)
+\]
+
+With the small-angles assumption
+
+\[
+sin(\phi(t))\approx\phi(t)
+\]
+
+the solution is of the differential equation is
+
+\[
+\phi(t) = \hat{\phi} \cdot sin( \sqrt{\frac{g}{l}} \cdot t + {\phi}_0)
+\]
+
+where $\hat{\phi}$ is the semi-amplitude and ${\phi}_0$ the phase at time $t=0$. This equation describes the dynamic system perfectly for all times.
+
+An interesting property of the pendulum system is that given the same initial state and excitation (eg. initial angle at $20 ^{\circ}$ and speed $0$), the system will behave the same way at as time progresses. This property is called determinism and guarantees that given the same excitation and initial state the system will always develop identically over time. Systems that posess this property are called \textit{deterministic dynamic systems} and differ greatly from the opposed \textit{randomized dynamic systems}.
+
+\textit{Randomized dynamic systems} are dynamic systems with an element of \textit{randomness}. The consequence of this is that the same initial conditions and excitation do not guarantee an identicial system response. A trivial example of a discrete randomized dynamic system is the following:
+
+
+\begin{align}
+q[n+1] &=\left q[n] + x[n] + e[n]\right \nonumber\\
+y[n] &=\left q[n] + x[n]\right \nonumber
+\end{align}
+
+where $x[n]$ is the input, $e[n]$ is white noise and $y[n]$ the output. If this system is provided with the same input signal twice, the resulting output signal is likely to be slightly different. This is caused by the inherint randomness of a white noise input.
+
+\textit{Deterministic dynamic systems} and \textit{randomized dynamic systems} are two extremely useful mathematical constructs and serve as the basis of the more advanced theory of the next few sections.

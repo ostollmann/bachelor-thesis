@@ -1,0 +1,14 @@
+\begin{thebibliography}{Han98}
+
+\bibitem[Han98]{Hansen98}
+Eric~A. Hansen.
+\newblock {Solving POMDPs by Searching in Policy Space}.
+\newblock In {\em UAI}, pages 211--219, 1998.
+
+\bibitem[Put94]{puterman}
+Matrin~L. Putterman.
+\newblock {\em Markov Decision Processes, Discrete Stochastic Dynamic
+  Programming}.
+\newblock Wiley-Interscience, Hoboken, New Jersey, 1994.
+
+\end{thebibliography}

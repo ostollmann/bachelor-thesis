@@ -1,0 +1,1 @@
+pdflatex -interaction=batchmode -output-directory=dist/ thesis.tex

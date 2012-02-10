@@ -1,0 +1,248 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Logg",
+				"LoggedControllerB"
+			],
+			[
+				"wrap",
+				"wrap_func_with_logger"
+			],
+			[
+				"Con",
+				"ControllerB"
+			],
+			[
+				"Cont",
+				"ControllerB"
+			],
+			[
+				"example",
+				"exampleStringGrid"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "references.bib",
+			"settings":
+			{
+				"buffer_size": 601,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 115.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/make",
+		"/Users/ost/Desktop/rec.py",
+		"/Users/ost/Desktop/log.py",
+		"/Users/ost/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
+		"/Users/ost/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
+		"/Users/ost/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/Users/ost/Dropbox/wte/MATLAB/simdp/tp_extract.m",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/background/stochastic_processes/markov_decision_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/conclusion.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/appendix.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/introduction.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/thesis.tex",
+		"/Users/ost/Desktop/hds/Generator.hs",
+		"/Users/ost/Desktop/s1.txt",
+		"/Users/ost/Desktop/sudoku.hs",
+		"/Users/ost/Downloads/sudoku.lhs",
+		"/Users/ost/Desktop/hds/XGen.hs",
+		"/Users/ost/Desktop/hds/Parser.x",
+		"/Users/ost/Desktop/sudoku2.hs",
+		"/Users/ost/Library/Haskell/ghc-7.0.3/lib/ghc-paths-0.1.0.8/lib/GHC/Paths.hi",
+		"/Users/ost/Desktop/hds/Generator_char-based.hs",
+		"/Users/ost/Desktop/hds/Lexer.x",
+		"/Users/ost/Desktop/hds/Tests.hs",
+		"/Users/ost/Desktop/hds/Tests.bs",
+		"/Users/ost/Desktop/snap/site/src/Site.hs",
+		"/Users/ost/Desktop/snap/site/src/Application.hs",
+		"/Users/ost/Code/MM/Main2.py",
+		"/Users/ost/Code/MM/Main.py",
+		"/Users/ost/Desktop/snap/SRCs/snap-server/src/Snap/Internal/Http/Server/SimpleBackend.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap-server/src/Snap/Internal/Http/Server/LibevBackend.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap-server/src/Snap/Internal/Http/Server/Backend.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap-server/src/Snap/Internal/Http/Server.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap-server/src/Snap/Http/Server/Config.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap-server/src/Snap/Http/Server.hs",
+		"/Users/ost/Desktop/snap/snap.sublime-project.sublime-project",
+		"/Users/ost/Desktop/snap/site/site.cabal",
+		"/Users/ost/Desktop/snap/SRCs/snap/src/Snap/Loader/Devel.hs",
+		"/Users/ost/Desktop/snap/site/src/Main.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap-core/src/Snap/Internal/Debug.hs",
+		"/Users/ost/Desktop/snap/SRCs/snap/project_template/default/src/Main.hs",
+		"/Users/ost/Downloads/Impressive-PresenterScreen/impressive.py"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"preamb",
+			"chapter",
+			"AlexError",
+			"Exception",
+			"SessionHandler",
+			"applicationInitializer",
+			"loadSnapTH",
+			"debug",
+			"type EventLoop",
+			"EventLoop",
+			"simpleEventLoop",
+			"httpServe",
+			"bracket",
+			"backend",
+			"getBackend",
+			"getAccessLog",
+			"setEnv"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "references.bib",
+					"settings":
+					{
+						"buffer_size": 601,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								405,
+								405
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 28.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 288.0,
+	"status_bar_visible": true
+}

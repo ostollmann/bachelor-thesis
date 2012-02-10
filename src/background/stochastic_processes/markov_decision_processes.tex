@@ -1,4 +1,4 @@
-\subsubsection{Markov Decision Processes}
+\subsection{Markov Decision Processes}
 
 Markov Decision Processes (MDPs) are an extension of Markov Chains and describe \textit{controllable} probabilistic dynamic systems. They are defined as a four touple $(S,A,P,R)$ with:
 \begin{itemize}
@@ -8,17 +8,17 @@ Markov Decision Processes (MDPs) are an extension of Markov Chains and describe 
 \item $R$: rewards.
 \end{itemize}
 
-\subsubsubsection{Actions: Decisions}
+\subsubsection{Actions: Decisions}
 
 MDPs are used to model probabilistic systems that can be influenced through decision-taking. These decisions are represented as actions and have a direct influence on the transition probabilities of the system. Transition probabilities are now three-dimensional and depend not only on the current state, but also on the action being taken; $Pr(X_{n+1}=x_n|X_n=x,a_n=a)$ is the probability of going to state $x_n$ in the next step given that the system is currently in state $x$ and action $a$ has been chosen.
 
-\subsubsubsection{Reward Model}
+\subsubsection{Reward Model}
 
 MDPs also add the idea of rewards to Markov Chains. Although rewards are not necessary to describe \textit{controllable} dynamic systems, they are the key to optimization. Every transition probability is paired with a reward, or cost (negative reward), value; $R(s,s',a)$ is the reward (scalar) that the system receives when it transitions from state $s'$ to state $s$ given that action $a$ was chosen.
 
 \textit{Note: It is important to understand that rewards do not have a probabilistic nature, but rather that the combination of conditional transition probabilities and rewards provide the basis for stochastic optimization in MDPs (see next section).}
 
-\subsubsubsection{Optimization}
+\subsubsection{Optimization}
 
 MDPs can be used to optimize decision making. The combination of a system description and an associated reward model allow us to calculate the optimal decision to take in a given situation. The aim of this optimization is to produce a \textit{policy}, $\pi(s)$, that defines exactly which action should be taken if the system finds itself in a certain state.
 

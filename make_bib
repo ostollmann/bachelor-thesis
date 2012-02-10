@@ -1,1 +1,3 @@
-pdflatex -interaction=batchmode thesis.tex ; bibtex thesis.aux ; pdflatex -interaction=batchmode thesis.tex 
+pdflatex -interaction=batchmode -output-directory=dist/ thesis.tex ;
+bibtex dist/thesis.aux ;
+pdflatex -interaction=batchmode  -output-directory=dist/ thesis.tex 

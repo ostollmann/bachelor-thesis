@@ -14,6 +14,10 @@
 \usepackage{booktabs}
 %\usepackage{showkeys} % shows the labels above the references for easier development
 
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+
 % modify headings:
 \usepackage{scrpage2}
 \KOMAoptions{headinclude}
@@ -26,12 +30,12 @@
 \usepackage{import}
 
 \setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+% \setcounter{tocdepth}{3}
 
 
 %PDF hyperref config
 \ifpdfoutput{%
-	\usepackage[pdftex]{graphicx}
+	% \usepackage[pdftex]{graphicx}
 	\usepackage[]{pdfpages} %for including full pdf pages
 	\usepackage[pdftex,
 		bookmarks,
@@ -193,13 +197,13 @@
 % ---------------------------------------------------------------- MAIN PART ----------------------------------------------------------------
 % --------------------------------------------------------------------------------------------------------------------------------------------------
 \import{src/}{introduction}
-\import{src/}{related_work}
 \import{src/}{motivation}
+\import{src/}{background}
 \import{src/}{methodology}
-\import{src/}{results-discussion}
+\import{src/}{implementation}
+\import{src/}{results}
 \import{src/}{conclusion}
 \import{src/}{outlook}
-
 
 % --------------------------------------------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -214,7 +218,8 @@
 %bibliography:
 \clearpage
 \renewcommand*{\chapterpagestyle}{empty}
-%\nocite{*}
+\nocite{*}
+% \bibliographystyle{plain}
 \bibliography{references}
 \addcontentsline{toc}{chapter}{Bibliography}
 

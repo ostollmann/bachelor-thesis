@@ -1,9 +1,9 @@
-\subsubsection{Markov Chains}
+\subsection{Markov Chains}
 
 A Markov Chain is a certain type of stochastic process that describes the dynamics of a probabilistic system by defining the conditional transition probabilities \(Pr(X_{n+1}=x|X_n=x_n)\) between members of a finite or infinite state-space.
 
 
-\subsubsubsection{Markov Property}
+\subsubsection{Markov Property}
 
 Markov Chains possess the Markov Property,
 
@@ -13,7 +13,7 @@ Pr(X_{n+1}=x|X_1=x_1,X_2=x_2,...,X_n=x_n) = Pr(X_{n+1}=x|X_n=x_n),
 
 which states that the current conditional transition probabilities are independent of the systems past states.
 
-\subsubsubsection{Transition Probability Matrix for Finite-State Markov Chains}
+\subsubsection{Transition Probability Matrix for Finite-State Markov Chains}
 
 If a Markov Chain's state-space is finite the transition probabilities between states can be represented in a transition probability matrix where the probability of going from state i to state j, $Pr(X_{n+1}=j|X_n=i)$, is equal to the $(i,j)$ element of the matrix:
 
@@ -27,7 +27,7 @@ If a Markov Chain's state-space is finite the transition probabilities between s
  \end{pmatrix}
 \]
 
-\subsubsubsection{Markov Chain Example}
+\subsubsection{Markov Chain Example}
 
 \begin{figure}[h!]
 \begin{center}
@@ -42,7 +42,7 @@ If a Markov Chain's state-space is finite the transition probabilities between s
    \path (A) edge [loop above]    node              {0.2} (A)
          (A) edge [bend right=20] node[above=0.3cm] {0.7} (B)
          (A) edge [bend right=20] node              {0.1} (C)
-         (B) edge [bend right=20] node              	{0.0} (A)
+         (B) edge [bend right=20] node              {0.0} (A)
          (B) edge [loop left]     node              {0.0} (B)
          (B) edge [bend left=20]  node              {1.0} (C)
          (C) edge [bend right=20] node[above=0.3cm] {0.5} (A)
