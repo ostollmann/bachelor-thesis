@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  10 FEB 2012 21:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  10 FEB 2012 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1081,7 +1081,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1093,7 +1093,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1105,7 +1105,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1117,7 +1117,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1129,7 +1129,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1141,7 +1141,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1153,7 +1153,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    s
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1165,7 +1165,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.64 \end{align}
+l.66 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1174,71 +1174,8 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.74 \]
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! You can't use `\eqno' in horizontal mode.
-\endmathdisplay@a ...\df@tag \@empty \else \veqno 
-                                                  \alt@tag \df@tag \fi \ifx ...
-l.74 \]
-       
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-! LaTeX Error: \begin{document} ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.74 \]
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.74 \]
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.74 \]
-       
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-[6]
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.74 \]
-       
-Things are pretty mixed up, but I think the worst is over.
-
-) (./src/background/stochastic_processes.tex <media/fractional_brownian_motion.
-png, id=278, 449.68pt x 337.26pt>
+[6]) (./src/background/stochastic_processes.tex <media/fractional_brownian_moti
+on.png, id=278, 449.68pt x 337.26pt>
 File: media/fractional_brownian_motion.png Graphic file (type png)
 <use media/fractional_brownian_motion.png>
 Package pdftex.def Info: media/fractional_brownian_motion.png used on input lin
@@ -1274,9 +1211,6 @@ Missing character: There is no 3 in font nullfont!
 Missing character: There is no 4 in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no t in font nullfont!
-
-Underfull \vbox (badness 3460) has occurred while \output is active []
-
 [8 <./media/fractional_brownian_motion.png (PNG copy)>]) (./src/background/stoc
 hastic_processes/markov_decision_processes.tex
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 5.
@@ -1287,10 +1221,11 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
 [9])
 (./src/background/stochastic_processes/partially_observable_markov_decision_pro
-cesses.tex)) (./src/background/simulink.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+cesses.tex
+Underfull \vbox (badness 1331) has occurred while \output is active []
 
-[10] <media/simulink_screenshot.png, id=302, 602.25pt x 319.94531pt>
+[10])) (./src/background/simulink.tex <media/simulink_screenshot.png, id=304, 6
+02.25pt x 319.94531pt>
 File: media/simulink_screenshot.png Graphic file (type png)
 <use media/simulink_screenshot.png>
 Package pdftex.def Info: media/simulink_screenshot.png used on input line 10.
@@ -1301,18 +1236,18 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 LaTeX Warning: Reference `penduresponse' on page 11 undefined on input line 18.
 
 
-<media/pendmodelscreen.png, id=308, 706.64pt x 459.7175pt>
+<media/pendmodelscreen.png, id=310, 706.64pt x 459.7175pt>
 File: media/pendmodelscreen.png Graphic file (type png)
 <use media/pendmodelscreen.png>
 Package pdftex.def Info: media/pendmodelscreen.png used on input line 22.
 (pdftex.def)             Requested size: 393.63469pt x 256.0748pt.
-<media/pendulum_response.png, id=309, 936.49875pt x 406.51875pt>
+[11] <media/pendulum_response.png, id=320, 936.49875pt x 406.51875pt>
 File: media/pendulum_response.png Graphic file (type png)
 <use media/pendulum_response.png>
 Package pdftex.def Info: media/pendulum_response.png used on input line 31.
 (pdftex.def)             Requested size: 426.79134pt x 185.26405pt.
-[11 <./media/simulink_screenshot.png>] [12 <./media/pendmodelscreen.png> <./med
-ia/pendulum_response.png>])) (./src/methodology.tex [13] [14
+)) (./src/methodology.tex [12 <./media/simulink_screenshot.png>] [13 <./media/p
+endmodelscreen.png> <./media/pendulum_response.png>] [14
 
 
 ]
@@ -2046,10 +1981,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 228.
  ) 
 Here is how much of TeX's memory you used:
- 19465 strings out of 493633
- 353992 string characters out of 3143378
+ 19487 strings out of 493633
+ 354406 string characters out of 3143378
  449235 words of memory out of 3000000
- 22205 multiletter control sequences out of 15000+200000
+ 22227 multiletter control sequences out of 15000+200000
  57104 words of font info for 73 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  65i,18n,95p,1237b,995s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2070,10 +2005,10 @@ s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/ut
 mr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dist//thesis.pdf (43 pages, 485420 bytes).
+Output written on dist//thesis.pdf (43 pages, 487743 bytes).
 PDF statistics:
- 474 PDF objects out of 1000 (max. 8388607)
- 391 compressed objects within 4 object streams
+ 477 PDF objects out of 1000 (max. 8388607)
+ 394 compressed objects within 4 object streams
  82 named destinations out of 1000 (max. 500000)
  282 words of extra memory for PDF output out of 10000 (max. 10000000)
 

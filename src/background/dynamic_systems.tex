@@ -56,7 +56,9 @@ y[n] &=\left q[n] + x[n]\right \nonumber
 
 where $x[n]$ is the input, $e[n]$ is white noise and $y[n]$ the output. If this system is provided with the same input signal twice, the resulting output signal is likely to be slightly different. This is caused by the inherit randomness of a white noise input.
 
-The above example touches on an important point in the field of system dynamics. The pendulum example differs from the white noise example because the former is defined in continuous time whilst the latter is defined in discrete time. A continuous time system is defined for any time value $t$. A discrete time system is, on the other hand, only defined on a subset of the infinite time line $T$, at discrete times $n \in N \subset T$. A simple example to illustrate this point:
+The above example touches on an important point in the field of signal theory and system dynamics. The pendulum example also differs from the white noise example because the former is defined in \textit{continuous time} whilst the latter is defined in \textit{discrete time}. A continuous time system is defined for any time value $t \in T$, where $T$ is the system's time space. A discrete time system is, on the other hand, only defined on a subset of the time line $T$, at discrete times $n \in N \subset T$.
+
+A simple example to illustrate this point is the comparison of the continuous and the discrete sine functions:
 
 \begin{align}
 y(t) &=\left sin(t),\right \nonumber \\
@@ -69,13 +71,12 @@ Here $y[n]$ is the discrete-time version of the continuous time system $y(t)$. A
 &n \in N \nonumber \\
 where& \nonumber \\
 N &= n\cdot T_s\ \forall\ n\ \in\ \mathbb{Z} \nonumber \\
-  &= [-\infty \cdot T_s,-(\infty  -1) \cdot T_s,\cdots,-1 \cdot T_s,0,-1 \cdot T_s,\cdots,(\infty-1) \cdot T_s,\infty \cdot T_s]. \nonumber \\
+  &= [-\infty \cdot T_s,-(\infty  -1) \cdot T_s,\cdots,-1 \cdot T_s,0,-1 \cdot T_s,\cdots,(\infty-1) \cdot T_s,\infty \cdot T_s]. \nonumber
 \end{align}
-\]
 
-It is easy to see here that a discrete time system contains less information than a continuous time signal. Nonetheless discrete time signals are prevalent because computers can only deal with digital (ie. discrete) time signals.
+It is easy to see here that a discrete time system contains less information than a continuous time signal. Nonetheless discrete time signals are prevalent because computers can only deal with digital (ie. discrete) signals.
 
-The last important property of dynamic systems is the notion of \textit{state}. A system's state is the smallest set of internal and/or external values that represent the entire state of the system. This means that a system's state completely describes that systems condition at a certain time. Coming back to the pendulum example it is clear that the entire system's condition can be described by two variables, the current angle $\phi(t)$ and the current angular velocity $\dot{\phi}(t)$. A definition of these two values at time $t$ completely define the system's condition in past and future times $t\pm\tau$.
+The last important property of dynamic systems is the notion of \textit{state}. A system's state is the smallest set of internal and/or external values that represent the entire state of the system. This means that a system's state completely describes that systems condition at a certain time. Coming back to the pendulum example it is clear that the entire system's condition can be described by two variables, the current angle $\phi(t)$ and the current angular velocity $\dot{\phi}(t)$. A definition of these two values at time $t$ completely define the system's condition in past and future times $t\pm\tau \in T$. The set of all possible states that a system may find itself in is defined as the \textit{state space} of that system.
 
 \textit{Deterministic dynamic systems} and \textit{randomized dynamic systems} are two extremely useful mathematical constructs and serve as the basis of the more advanced theory of the next few sections.
 

@@ -4,9 +4,10 @@
 \contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces 1-dimensional mathematical pendulum\relax }}{5}{figure.caption.6}
 \contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Fractional Brownian motion with Hurst parameter of $0.4$\relax }}{8}{figure.caption.7}
 \contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Three-State Markov Chain\relax }}{8}{figure.caption.8}
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Screenshot of Simulink\relax }}{11}{figure.caption.9}
-\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces 1-dimensional mathematical pendulum model\relax }}{12}{figure.caption.10}
-\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces 1D mathematical pendulum response\relax }}{12}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces MDP control loop\relax }}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Screenshot of Simulink\relax }}{12}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces 1-dimensional mathematical pendulum model\relax }}{13}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces 1D mathematical pendulum response\relax }}{13}{figure.caption.12}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
