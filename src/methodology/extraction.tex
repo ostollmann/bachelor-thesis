@@ -4,7 +4,26 @@ Simulink models represent dynamic systems in a number of different ways. Systems
 
 In order to build these transition probability matrices the \textit{extractor} must simply simulate and observe the given Simulink model enough times and with enough different inputs to build up this transition probability matrix. In parallel the \textit{extractor} observes the Simulink model's reward and observation outputs and incrementally builds the reward matrix and the conditional observation probability matrix. The following sections go through each of the steps required during this extraction and gives a short high-level overview of the main functions.
 
+\subsection{Approach}
+\label{subsec:approach}
+
+The approach chosen for the extraction of Partially Observable Markov Decision Processes from Simulink models is a simple one. If a model is simulated a large enough number of times from the same source state and given the same action, the transition probability for reaching states in the next step given the source state $s_t = s$ and the action $a_t = a$,
+\[
+Pr(s_{t+1} = s'|s_t = s, a_t = a),
+\]
+can be extracted simply by counting the number of times certain sink states, $s_{t+1}$, were reached and normalizing the count vector. This is exactly what the extraction algorithm does for every possible source state given every possible action. In parallel reward and observation outputs are observed to build the reward model and the conditional observation probabilities described in more detail in sections~\ref{subsec:mdp} and \ref{subsec:pomdp}.
+
+Given a simple input/output model, boundaries for the inputs and boundaries for the outputs, the extractor will extract a POMDP by simulating the model and observing its response. This extraction involves producing actions from input value boundaries, identifying states and building a state space, identifying observations and building an observation space and handling simulation errors and states outside the permitted bounds.
+
+\subsection{Discretization}
+\label{subsec:discretization}
+
+
+
+
+
 \subsection{Inputs and actions}
+\label{subsec:inputsactions}
 
 MDPs and POMDPs model \textit{controllable} dynamic systems, where a decision taker can influence the system's development over time. Simulink models usually have a single or multiple inputs that are sampled in every time-step and used as input for the given system. In order to extract transition probabilities that depend on the action chosen by the decision maker, simulations must be observed for each of the possible actions. This means that for every state the system may find itself in, simulations must be run with every possible action a decision maker may choose to take. In order to guarantee that the MDP or POMDP will be able to represent the dynamics of the system correctly this means that every possible permutation of permitted input values must be used during the extraction.
 
@@ -22,6 +41,7 @@ If a conversion of this system to an MDP or a POMDP were necessary with the foll
 \item - output: temperature $T$,
 \end{itemize}
 the action set of an MDP or a POMDP would be defined as the cartesian product of all input sets. If the maximum of each input $x$ were defined as $x_{max}$ and it's minimum as $x_{min}$, the action set would be:
+
 \begin{align}
 A &=\left \Pi \times \Lambda \times \Gamma \right \nonumber\\
 &=\left \{(p,V,n)\ |\ p\ \in \Pi\ and\ V  \in \Lambda\ and\ n \in \Gamma\},\right \nonumber \\
@@ -39,7 +59,6 @@ with $N_i$ being the number of different input values required between the maxim
 \[
 |A| = \prod_{i \in I} N_i.
 \]
-
 
 An example action set with numeric values could be
 
@@ -68,6 +87,83 @@ In this case the number of actions comes to
 |A| = \prod_{i \in (p,V,n)} N_i = N_p \cdot N_V \cdot N_n = 100 \cdot 10 \cdot 5 = 5000.
 \]
 
+The action set produced in this fashion is then used by the extraction algorithm. Implementation details are described in section [XXX].
 
+\subsection{System State and System Output}
+
+As described in section~\ref{sec:dynamicsystems} a system's \texti{state} is defined as the smallest possible set of internal and/or external values that represent the system's condition at a certain time. This notion of state in dynamic systems maps exactly onto the idea of states of stochastic processes. Unfortunately an extraction based on applying different inputs to a system and observing it's outputs does not provide \textit{state information} in the above sense, because the relationship between system output and system state is not biconditional. This distinction entails the biggest simplification made by the product of this work, the POMDP extractor.
+
+The extractor does not distinguish between system output and system state as it makes the assumption that \textit{if two system responses are equal the two states of the system are equal}. This simplification was made for two reasons. Firstly, although Simulink offers a way of saving a simulated system's internal state, it does not provide a simple way of comparing two system states. Secondly this simplifications greatly decreases the size of the extracted POMDPs state space. Section [XXX] discusses the difficulty of extremely large state spaces in mode detail.
+
+A short example may make this rather larger simplification clearer. The mathematical pendulum example (see Figure~\ref{1dpendulum}) introduced in section~\ref{sec:dynamicsystems} provides a good basis. As discussed in section~\ref{sec:dynamicsystems} the pendulum system's condition can be described by only two variable, the angular position $\phi(t)$ and the angular velocity $\dot{\phi}(t)$ of the pendulum. Knowing these two values the system's past can be reconstructed and it's future predicted. If a POMDP extraction of this system were configured with only the angular position $\phi(t)$ as an output, the extractor would interpret the two states,
+
+\begin{align}
+ x_{1,t=\tilde{t}} &=\left \begin{pmatrix}
+  \phi_1(\tilde{t})=\frac{\pi}{4},\ \dot{\phi_1}(\tilde{t})=0.8\ [\frac{rad}{s}]  \end{pmatrix} \right \nonumber \\
+ x_{2,t=\tilde{t}} &=\left \begin{pmatrix}
+  \phi_2(\tilde{t})=\frac{\pi}{4},\ \dot{\phi_2}(\tilde{t})=-1.3\ [\frac{rad}{s}] \\
+ \end{pmatrix},\right \nonumber
+\end{align}
+
+as equal because only the values $\phi_1(\tilde{t})$ and $\phi_2(\tilde{t})$ would be compared. With this simple example the dangers associated with ignoring the ramifications of this simplification become strikingly obvious. The pendulum in state $x_1$ will in the future swing in one direction, whilst the pendulum in state $x_2$ will swing in the opposite direction, clearly a different development, yet deemed equal by the extraction algorithm. In this case the problem could be overcome by defining a second output, the angular velocity $\dot{\phi}(t)$, that would then make the relationship between system state and system output biconditional. With such a configuration the extractor would no longer deem $x_1$ and $x_2$ to be equal system states and thus produce a more realistic POMDP.
+
+A more detailed analysis of the ramifications of this simplification can also be found in section [XXX].
+
+
+\subsection{State Discovery}
+
+% As shortly touched upon in section~\ref{subsec:approach} the POMDP extractor must be given, amongst other configuration parameters, boundary values for all observed outputs. The boundaries are defined as scalar minimum and maximum values each output may reach. This means that it would be possible, after discretization (see section~\ref{subsec:discretization}), to compute the number of possible states the system could reach. The following short example, with two outputs $a$ and $b$ and boundaries, 
+
+% \begin{align}
+% a_{min} &= 0.0 \nonumber\\
+% a_{max} &= 1.0 \nonumber\\
+% b_{min} &= 1000 \nonumber\\
+% b_{max} &= 2000 \nonumber,
+% \end{align}
+
+% illustrates this point. Given these boundaries and discretization parameters the extractor's discretization function may produce the following discrete value buckets for each output,
+
+% \begin{align}
+% a &\in [0.0,0.5,1.0] \nonumber \\
+% b &\in [1000,2000], \nonumber
+% \end{align}
+
+% meaning that the system could reach the following six states:
+
+% \[
+% x = 
+% \begin{pmatrix}
+% x_1 \\
+% x_2 \\
+% x_3 \\
+% x_4 \\
+% x_5 \\
+% x_6
+% \end{pmatrix}
+% =
+% \begin{pmatrix}
+% a = 0.0 & b = 1000 \\
+% a = 0.0 & b = 2000 \\
+% a = 0.5 & b = 1000 \\
+% a = 0.5 & b = 2000 \\
+% a = 1.0 & b = 1000 \\
+% a = 1.0 & b = 2000
+% \end{pmatrix}.
+% \]
+
+
+% The above example shows that, given the discrete values each observed output may take, it is possible to construct the $n$-dimensional state space of the system, where $n$ is the number of observed outputs. The cardinality of the produced state space set can then also be computed as
+
+% \[
+% |S| = \prod_{x_i \in X} N_x
+% \]
+
+% where $X$ is the output set, containing all the outputs $x_i$, and $N_x$ is the number of values the output's discrete value bucket contains. In the above example $|S|$ is obviously equal to 6. In most cases however this number is extremely large. State spaces can contain millions of output value sets.
+
+% Additionaly a distinction must be made between the \textit{reachable} and \textit{unreachable states}. The system's state space may only be a subset of the \textit{potential} state space defined by the output values' boundaries. This difference between the \textit{potential} and the \textit{reachable} state space is why the POMDP extractor does not produce this \textit{potential} state space in advance. The extractor starts with an empty state space and simply adds new states to the state space as they are discovered.
+
+% The reasons for this is that the \textit{potential} state space may be much larger than the system's \textit{reachable} state space, meaning that data structures containing the state space may have unnecessarily large memory requirements. Additionaly any state in the state space must be used as a source state to extract the transition and observation probabilities and the reward model. If the \textit{potential} state space were immediately used, the number of required simulations would increase although these simulations may be from \textit{unreachable} source states.
+
+% \textit{Note: this discussion, whilst theoretically interesting, if in fact unnecessary, because even if the complete potential state space were to be considered, simulations from some of these states may be impossible because of the fact that Simulink simulations require a Simulink internal SimState datastructure that can only be acquired from past simulations. This means that simulations from unreachable states are in fact impossible in Simulink.}
 
 

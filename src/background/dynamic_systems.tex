@@ -42,9 +42,9 @@ the solution of the differential equation is
 \phi(t) = \hat{\phi} \cdot sin( \sqrt{\frac{g}{l}} \cdot t + {\phi}_0)
 \]
 
-where $\hat{\phi}$ is the semi-amplitude and ${\phi}_0$ the phase at time $t=0$. This equation describes the dynamic system perfectly for all times.
+where $\hat{\phi}$ is the semi-amplitude and ${\phi}_0$ the phase at time $t=0$. This equation describes the simplified dynamic system perfectly for all times.
 
-An interesting property of the pendulum system is that given the same initial state and excitation (eg. initial angle at $20 ^{\circ}$ and speed $0$), the system will behave the same way at as time progresses. This property is called determinism and guarantees that given the same excitation and initial state the system will always develop identically over time. Systems that posess this property are called \textit{deterministic dynamic systems} and differ greatly from the opposed \textit{randomized dynamic systems}.
+An interesting property of the pendulum system is that given the same initial state and excitation (eg. initial angle at $20 ^{\circ}$ and speed $0$), the system will always respond the same way as time progresses. This property is called determinism and guarantees that given the same excitation and initial state the system will always develop identically over time. Systems that posess this property are called \textit{deterministic dynamic systems} and differ greatly from the opposed \textit{randomized dynamic systems}.
 
 \textit{Randomized dynamic systems} are dynamic systems with an element of \textit{randomness}. The consequence of this is that the same initial conditions and excitation do not guarantee an identicial system response. A trivial example of a discrete randomized dynamic system is the following:
 
@@ -62,19 +62,21 @@ A simple example to illustrate this point is the comparison of the continuous an
 
 \begin{align}
 y(t) &=\left sin(t),\right \nonumber \\
-y[n] &=\left sin(n) = sin(n*T_s). \right \nonumber
+y[n] &=\left sin(n) = sin(n \cdot T_s). \right \nonumber
 \end{align}
 
-Here $y[n]$ is the discrete-time version of the continuous time system $y(t)$. As one can see, $y[n]$ is produced by \textit{sampling} $y(n)$ with the sampling frequency $T_s$. This means that whilst $y(t)$ is defined for all times $t$, $y[n]$ is only defined for the times 
+Here $y[n]$ is the discrete-time version of the continuous time system $y(t)$. $y[n]$ is produced by \textit{sampling} $y(n)$ with the sampling frequency $f_s=\frac{1}{T_s}$. This means that whilst $y(t)$ is defined for all times $t$, $y[n]$ is only defined for the times 
 
 \begin{align}
 &n \in N \nonumber \\
 where& \nonumber \\
-N &= n\cdot T_s\ \forall\ n\ \in\ \mathbb{Z} \nonumber \\
+N &= n\cdot T_s\ \forall\ (n\ \in\ \mathbb{Z}) \nonumber \\
   &= [-\infty \cdot T_s,-(\infty  -1) \cdot T_s,\cdots,-1 \cdot T_s,0,-1 \cdot T_s,\cdots,(\infty-1) \cdot T_s,\infty \cdot T_s]. \nonumber
 \end{align}
 
-It is easy to see here that a discrete time system contains less information than a continuous time signal. Nonetheless discrete time signals are prevalent because computers can only deal with digital (ie. discrete) signals.
+It is easy to see here that a discrete time system contains less information than a continuous time signal [MAYBE FIGURE HERE]. Nonetheless discrete time signals are prevalent because computers can only deal with digital (ie. discrete) signals.
+
+
 
 The last important property of dynamic systems is the notion of \textit{state}. A system's state is the smallest set of internal and/or external values that represent the entire state of the system. This means that a system's state completely describes that systems condition at a certain time. Coming back to the pendulum example it is clear that the entire system's condition can be described by two variables, the current angle $\phi(t)$ and the current angular velocity $\dot{\phi}(t)$. A definition of these two values at time $t$ completely define the system's condition in past and future times $t\pm\tau \in T$. The set of all possible states that a system may find itself in is defined as the \textit{state space} of that system.
 

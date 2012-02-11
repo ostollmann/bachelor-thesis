@@ -8,19 +8,23 @@
 \contentsline {subsection}{\numberline {3.2.1}Markov Chains}{7}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Markov Decision Processes}{9}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Partially Observable Markov Decision Processes}{10}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Simulink}{11}{section.3.3}
+\contentsline {section}{\numberline {3.3}Simulink}{12}{section.3.3}
 \contentsline {chapter}{\numberline {4}Methodology}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Extraction}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Inputs and actions}{15}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Validation}{17}{section.4.2}
-\contentsline {chapter}{\numberline {5}Implementation}{19}{chapter.5}
-\contentsline {section}{\numberline {5.1}Extractor}{19}{section.5.1}
-\contentsline {section}{\numberline {5.2}Validator}{19}{section.5.2}
-\contentsline {chapter}{\numberline {6}Results}{21}{chapter.6}
-\contentsline {section}{\numberline {6.1}Extractor}{21}{section.6.1}
-\contentsline {section}{\numberline {6.2}Validator}{21}{section.6.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{23}{chapter.7}
-\contentsline {chapter}{\numberline {8}Outlook}{25}{chapter.8}
-\contentsline {chapter}{\numberline {A}Appendix}{27}{appendix.A}
-\contentsline {section}{\numberline {A.1}Item 1}{27}{section.A.1}
-\contentsline {chapter}{Bibliography}{29}{appendix*.13}
+\contentsline {subsection}{\numberline {4.1.1}Approach}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Inputs and actions}{16}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}System State and System Output}{17}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}State Discovery}{18}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Discretization}{19}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Validation}{19}{section.4.2}
+\contentsline {chapter}{\numberline {5}Implementation}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Extractor}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Validator}{21}{section.5.2}
+\contentsline {chapter}{\numberline {6}Results}{23}{chapter.6}
+\contentsline {section}{\numberline {6.1}Extractor}{23}{section.6.1}
+\contentsline {section}{\numberline {6.2}Validator}{23}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{25}{chapter.7}
+\contentsline {chapter}{\numberline {8}Outlook}{27}{chapter.8}
+\contentsline {chapter}{\numberline {A}Appendix}{29}{appendix.A}
+\contentsline {section}{\numberline {A.1}Item 1}{29}{section.A.1}
+\contentsline {chapter}{Bibliography}{31}{appendix*.14}

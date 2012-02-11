@@ -1,4 +1,5 @@
 \subsection{Markov Decision Processes}
+\label{subsec:mdp}
 
 Markov Decision Processes (MDPs) are an extension of Markov Chains and describe \textit{controllable} probabilistic dynamic systems. They are defined as a four touple $(S,A,P,R)$ with:
 \begin{itemize}
@@ -10,9 +11,9 @@ Markov Decision Processes (MDPs) are an extension of Markov Chains and describe 
 
 MDPs are used to model probabilistic systems that can be influenced through decision-taking. These decisions are represented as actions and have a direct influence on the transition probabilities of the system. This idea of actions influencing transition probabilities can also be interpreted as \textit{systems with uncertain actions}. Transition probabilities are now three-dimensional and depend not only on the current state, but also on the action being taken; $Pr(X_{n+1}=x_n|X_n=x,a_n=a)$ is the probability of going to state $x_n$ in the next step given that the system is currently in state $x$ and action $a$ has been chosen.
 
-MDPs also define rewards. Although rewards are not necessary to describe \textit{controllable} dynamic systems, they are necessary when using MDPs for optimization. Every transition probability is paired with a reward, or cost (negative reward), value; $R(s,s',a)$ is the reward (scalar) that the system receives when it transitions from state $s'$ to state $s$ given that action $a$ was chosen. \textit{Note that rewards are not inherently probabilistic}.
+Because MDPs are not only used as a representational form of dynamic systems, but also as an optimization tool, it introduces the notion of rewards. Every transition probability is paired with a reward, or cost (negative reward), value; $R(s,s',a)$ is the reward (scalar) that the system receives when it transitions from state $s'$ to state $s$ given that action $a$ was chosen. Note that rewards are not inherently probabilistic, but an MDP models a \textit{probabilistically rewarding system} indirectly through the stochastic nature of the transition probabilities.
 
-MDPs can be used to optimize decision making. The combination of a system description and an associated reward model allows the computation on an optimal decision to take in a given situation. The aim of this optimization is to produce a \textit{policy}, $\pi(s)$, that defines exactly which action should be taken if the system finds itself in a certain state.
+Markov Decision Processes can be used to optimize decision making. The combination of a system description and an associated reward model allows the computation of an optimal decision to take in a given situation. The aim of this optimization is to produce a \textit{policy}, $\pi(s)$, that defines exactly which action should be taken if the system finds itself in a certain state.
 
 The computation of an optimal policy requires the definition of \textit{optimality}. In most cases optimization simply aims for the maximization of rewards (or minimization of costs) over a certain decision span. This optimization goal is defined in a so called reward function, the most common of which is the \textit{expected discounted total reward} (infinite horizon),
 
@@ -23,14 +24,14 @@ The computation of an optimal policy requires the definition of \textit{optimali
 with:
 \begin{itemize}
 \item $\gamma$: discount factor, where $\gamma\in(0,1]$,
-\item $R_{a_t}(s_t,s_{t+1})$: reward received in $t+1$ for taking action $a$ from state $s_t$ at time $t$.	
+\item $R_{a_t}(s_t,s_{t+1})$: reward received in $t+1$ for taking action $a_t$ from state $s_t$ at time $t$.	
 \end{itemize}
 
 The \textit{expected discounted total reward} seen above is one of the four traditional reward functions, defined in \cite{puterman} as: TODO. The \textit{expected discounted total reward} represents the idea that the decision maker values the total sum of rewards, but prefers rewards received earlier to rewards received later, ie. \textit{rewards are discounted over time}. This reward function has a valuable property of being non-myopic. It takes into account not only the reward received in the next step, but looks far into the future taking into account that actions that are highly rewarded in the short-term may in fact be the wrong decision because of their effect in the long-term. 
 
-Given an MDP and a reward function, an optimal policy can be computed. The computation of such a policy can be undertaken using either \textit{linear programming} or, more commonly, \textit{dynamic programming}, namely value iteration. An in-depth analysis of the different policy computation algorithms is out of the scope of this text, but is covered in detail by the field's literature \cite{puterman}. The result of the policy computation is, as described above, a policy $\pi(s)$ that maps states to actions and thus provides a decision maker with an \textit{optimal decision} to take when the controlled system finds itself in a certain state.
+Given an MDP and a reward function, an optimal policy can be computed. The computation of such a policy can be undertaken using either \textit{linear programming} or, more commonly, \textit{dynamic programming} (value- and policy-iteration). An in-depth analysis of the different policy computation algorithms is out of the scope of this text, but is covered in detail by the field's literature \cite{puterman}. The result of the policy computation is, as described above, a policy $\pi(s): S \rightarrow A$ that maps elements of the set of states $S$ to elements of the set of actions $A$ and thus provides a decision maker with an \textit{optimal decision} to take when the controlled system finds itself in a certain state.
 
-Although control and optimization are not the motivation of this work it is interesting to look at the use of MDPs as control and optimization tools. Figure~\ref{mdpcontrol} shows the MDP's computed policy's position in the decision-taking control loop of an abstract controller. The controller has taken some decision at time $t$. He then received an information as to what state $s_{t+1}$ the system is in now, at time $t+1$, he then uses the policy $\pi: S \rightarrow A$ to determine the optimal action $a_{t+1}$ to take at this time $t+1$. This will ensure that the system is \textit{controlled in an optimal way}.
+Although control and optimization are not the motivation of this work it is interesting to look at the use of MDPs as control and optimization tools. Figure~\ref{mdpcontrol} shows the MDP's computed policy's position in the decision-taking control loop of an abstract controller. The controller has taken some decision at time $t$. He then received an information as to what state $s_{t+1}$ the system is in now, at time $t+1$. He then uses the policy $\pi: S \rightarrow A$ to determine the optimal action $a_{t+1}$ to take at this time $t+1$. This loop ensures that the system is \textit{controlled in an optimal way}.
 
 \begin{figure}
 \begin{center}
