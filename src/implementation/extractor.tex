@@ -1,3 +1,138 @@
 \section{Extractor}
 
-This is about the implementation of the extractor.
+The extractor is implemented in the MATLAB programming language using an object-oriented approach. The choice of the MATLAB programming language stems from the fact that it is strongly integrated with Simulink, MathWorks' commercial simulation tool, introduced in section~\ref{sec:simulink}. The entire code base encompasses approximately 2000 lines of code including comments. The following sections introduce both the main extraction class, the simulation class, miscellaneous utility classes and functions and the format of an extraction configuration script. Finally a difficulty with Simulink's random number generators is discussed and the solution presented.
+
+\subsection{Extration Class}
+
+The \textit{extraction} logic, ie. the transformation of simulation results into conditional state transition probabilities, is implemented as a single class, namely `POMDPExtractor'. The `POMDPExtractor' calls upon a simulation object and other helper functions. It exports a relatively simple interface, containing both a simple single-call extraction function,
+ \begin{verbatim}extract(),\end{verbatim}
+
+ as well as the following individual functions:
+
+\begin{itemize}
+\item \begin{verbatim}create_error_state(),\end{verbatim}
+\item \begin{verbatim}create_out_of_range_state(),\end{verbatim}
+\item \begin{verbatim}prepare_action_space(),\end{verbatim}
+\item \begin{verbatim}initial_discovery(),\end{verbatim}
+\item \begin{verbatim}sim_loop(),\end{verbatim}
+\item \begin{verbatim}fill_error_tps(),\end{verbatim}
+\item \begin{verbatim}fill_out_of_range_tps().\end{verbatim}
+\end{itemize}
+
+As mentioned in the introduction to this chapter, only certain, more interesting, parts of the implementation will be covered, as the rest is explained in the source code comments. In the following the class data structures, the initial discovery and the main simulation loop are shortly discussed.
+
+\subsubsection{Data Structure}
+The `POMDPExtractor' class contains, amongst other things, data structures for the conditional transition probability matrix, the conditional observation probability matrix, the reward model, the state space and the observation space.
+
+The transition probability matrix is implemented as a three-dimensional tensor, indexed by positive integers, accessed with the following call:
+\begin{verbatim}
+TP(source-state-index,action-index,sink-state-index).
+\end{verbatim}
+
+The reward model is an identical three-dimensional tensor data structure, whereas the observation probabilities are stored in a standard matrix, also indexed by positive integers, the state-index as well as the observation-index.
+
+The state space and the observation space are implemented as structure arrays of the following schema,
+
+\begin{verbatim}
+state_space = struct( ...
+            'outputs', {}, ...
+            'init_state', {}, ...
+            'been_source', {} ...
+            );
+
+observation_space = struct( ...
+            'outputs', {} ...
+            );
+\end{verbatim}
+
+where `outputs' are arrays of quantitized values representing model outputs (eg. temperature, pressure, flux, etc), `init\_state' contains the Simulink internal simulation state object and `been\_source' is a boolean flag used to query the state space for states not yet used as simulation source states. The observation space struct contains a single field, an array of discretized model output values.
+
+After every simulation, a `save\_state' function receives the simulation model's output values, the Simulink internal system state object and the current state space and, after discretizing the output values, checks whether this state has already been discovered, if yes, disgarding the data and if not, adding the newly discovered data to the Markov Process's state space. The newly added state will then be used as a source state in a later simulation loop. A similar function takes a simulation's observation outputs and updates the observation space accordingly.
+
+\subsubsection{Initial Discovery}
+
+The initial discovery, touched upon in section~\ref{subsec:statediscovery}, produces the extractor's initial state space. Before a single simulation is run, the extractor has no knowledge of the state space that will be incrementally built as the extraction progresses. In order to provide the main simulation loop with source states to begin simulating with, the initial discovery function simulates the source model for every action in the action space without specifying an initial system state, letting Simulink fall back to its default intial system state. The results of these simulations are not used to extract the transition probabilities, the observation probabilities or the reward model, they are merely used to build an initial state space to be used in the main simulation loop.
+
+\subsubsection{Main Simulation Loop}
+
+Following the initial discovery, the extractor enters the main simulation loop. Every iteration of this loop runs all required simulations from a single source state. The source state is chosen by querying the state space data structure for states that have not yet been used as source states for extraction simulations.
+
+Within this loop the entire action space is again looped through and probabilistic simulations (see section~\ref{sec:probabilisticsimulation}) are run for each source-state/action pair, producing a result similar to the one given in the extraction example in section~\ref{subsec:extractexample}. Using these simulation results, a single row in the three-dimensional state transition probability matrix is computed, as well as entries in the observation and the reward model updated. 
+
+The main simulation loop ends when all states in the state space have been used as source states, ie. when the entire conditional transition probability matrix, the entire conditional observation probability matrix and the entire reward matrix have been computed.
+
+\subsection{Simulation Class}
+
+The `Simulation' class provides the extractor with a simple interface for simulating Simulink models. Amongst other helper functions it exports the following `parallel\_simulations' function:
+
+\begin{verbatim}
+function [par_sim_out] = parallel_simulations( ...
+                            model_name, ...
+                            a_t, ...
+                            a_u, ...
+                            num_steps, ...
+                            num_runs, ...
+                            catch_exception, ...
+                            a_init_state)
+\end{verbatim}
+
+This function provides the backbone to all of the extractor's simulations. It provides a simplified interface to MATLAB's parallel computing system.
+
+Given a model name, a time step array, inputs for each simulation at each time step, initial states and a number of other configuration arguments, the `Simulation' object will solve scoping problems, handle exceptions and finally run parallel simulations providing each simulation with the correct inputs and initial state. The simulation results are returned as a cell array containing simulation outputs and simulation state or in the case of simulation errors, the error description (for debugging).
+
+MATLAB provides a decoupled interface for running parallel simulations, meaning that job control adjusts dynamically to the number of available cores. A helpful consequence of this is that extractions will run on both single-core and multi-core machines without modification, the latter case, however, providing much faster results.
+
+\subsection{Miscellaneous}
+
+The extraction code base also includes a number of other scripts and classes developed to facilitate both the development of the extractor as well as the extraction itself. A few examples include an advanced logging interface, a predicate based vector element counter   and bash scripts that parse running extractions' log files and provide valuable statistics at run-time.
+
+\subsection{Extraction Configuration}
+\label{subsec:randomsimulink}
+
+A discussed in the previous chapters and sections the extractor requires a certain level of configuration, such as the number of inputs, discretization parameters, etc. The following script provides an example of a complete configuration and extraction-calling script:
+
+\begin{verbatim}
+mp = POMDPExtractor();
+
+mp.model_name = 'rand_mod';
+mp.input_ranges = [[0,1];[0,1]];
+mp.output_ranges = [0,2];
+
+mp.number_of_inputs = 2;
+mp.rand_input = 1;
+
+mp.rand_input_type = 'normal';
+mp.rand_input_config = struct( ...
+                            'mean', 0, ...
+                            'variance', 0.1 ...
+                            );
+
+
+mp.number_of_state_outputs = 1;
+mp.number_of_observation_outputs = 1;
+
+mp.epoch_time_steps = 10;
+
+mp.action_space_granularity = 10;
+mp.state_space_granularity = [-1];
+mp.observation_space_granularity = [-1];
+
+mp.extract_rewards = 1;
+mp.is_deterministic_model = 0;
+
+mp.probabilistic_extraction_num_runs = 500;
+
+mp = mp.extract();
+\end{verbatim}
+
+\subsection{Model Randomness}
+
+Simulink randomness blocks produce pseudo-random numbers using seed values. The advantage of seed values is that they can be used to reproduce identical pseudo-random number sequences multiple times. The disadvantage of this approach is that an algorithm based on observing the random behavior of a model by simulating this model multiple times, will not notice any random behavior unless the seed values are changed for every simulation.
+
+Although Simulink offers a relatively simple way of updating seed values, this approach does not work when simulating model with a specific inital state (saved from previous simulations). Simulations using past system state objects seem to ignore newly set seed values, opting instead for the seed value saved in the past simulation's system state object.
+
+In order to overcome this problem, the `POMDPExtractor' offers its own random number generator. This approach guarantees, that new random values will be available for each simulation. These random number are available as an input to the model, effectively replacing Simulink's random number blocks. The custom random number generator can be configured in the extraction parameters (uniform generator or normal generator, mean and variance values, etc). An example configuration can be seen above in section~\ref{subsec:randomsimulink}.
+
+This approach does however have a drawback. The random number generator produces values for each time step, whereas a variable-step solver may require values between time steps. The consequence of this is that, if so required, the randomly generated values are interpolated between time-steps. This must be considered, as it may have adverse effects on the simulation quality.
+
+
