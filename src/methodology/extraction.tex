@@ -16,6 +16,7 @@ can be extracted simply by counting the number of times certain sink states, $s_
 Given a simple input/output model, boundaries for the inputs and boundaries for the outputs, the extractor will extract a POMDP by simulating the model and observing its response. This extraction involves producing actions from input value boundaries, identifying states and building a state space, identifying observations and building an observation space and handling simulation errors and states outside the permitted bounds.
 
 \subsection{System State and System Output}
+\label{subsec:stateoutput}
 
 As described in section~\ref{sec:dynamicsystems} a system's \texti{state} is defined as the smallest possible set of internal and/or external values that represent the system's condition at a certain time. This notion of state in dynamic systems maps exactly onto the idea of states of stochastic processes. Unfortunately an extraction based on applying different inputs to a system and observing it's outputs does not provide \textit{state information} in the above sense, because the relationship between system output and system state is not biconditional. This distinction entails the biggest simplification made by the product of this work, the POMDP extractor.
 

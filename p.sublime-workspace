@@ -27,14 +27,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "references.bib",
-			"settings":
-			{
-				"buffer_size": 601,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -60,6 +52,51 @@
 	},
 	"file_history":
 	[
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/thesis.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/references.bib",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/extraction.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/results.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/discussion.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/results/extractor.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/results/validator.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/results/old/mdp_simulator/step_response.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/validation.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/stochastic_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/stochastic_processes/markov_chains.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/plagiarism.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/abstract.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/appendix.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/bibliography.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/implementation/extractor.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/implementation.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/introduction.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/motivation.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/acknowledgment.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/simulink.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/implementation/validator.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/dynamic_systems.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/stochastic_processes/markov_decision_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/stochastic_processes/partially_observable_markov_decision_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/title.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/background/deterministic_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/outlook.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/conclusion.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/results/pomdp_analysis.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/deterministic_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/dynamic_systems.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/simulink.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/stochastic_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/stochastic_processes/markov_decision_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/stochastic_processes/partially_observable_markov_decision_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/related_work/stochastic_processes/markov_chains.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/background/stochastic_processes/markov_chains.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/references.bib",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/approach.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/background/stochastic_processes.tex",
+		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/background.tex",
 		"/Users/ost/Dropbox/bachelor-thesis/thesis/make",
 		"/Users/ost/Desktop/rec.py",
 		"/Users/ost/Desktop/log.py",
@@ -68,10 +105,6 @@
 		"/Users/ost/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
 		"/Users/ost/Dropbox/wte/MATLAB/simdp/tp_extract.m",
 		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/methodology/background/stochastic_processes/markov_decision_processes.tex",
-		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/conclusion.tex",
-		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/appendix.tex",
-		"/Users/ost/Dropbox/bachelor-thesis/thesis/src/introduction.tex",
-		"/Users/ost/Dropbox/bachelor-thesis/thesis/thesis.tex",
 		"/Users/ost/Desktop/hds/Generator.hs",
 		"/Users/ost/Desktop/s1.txt",
 		"/Users/ost/Desktop/sudoku.hs",
@@ -118,6 +151,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"equal",
+			"width=17cm",
+			"width=19cm",
+			"\\begin{figure}",
+			"width=16cm",
+			"height=9cm",
+			"u_1(t)",
+			"bw_val_const",
+			"ackno",
+			"aswell",
+			"figure",
 			"preamb",
 			"chapter",
 			"AlexError",
@@ -142,6 +186,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"width=18cm",
+			"width=17cm",
+			"\\begin{figure}[h!]",
+			"width=19cm",
+			"width=16cm",
+			"u_2(t)",
+			"bw_val_step"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -152,38 +203,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "references.bib",
-					"settings":
-					{
-						"buffer_size": 601,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								405,
-								405
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -243,6 +264,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 288.0,
+	"side_bar_width": 233.0,
 	"status_bar_visible": true
 }

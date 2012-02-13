@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  12 FEB 2012 22:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  13 FEB 2012 22:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -795,12 +795,12 @@ LaTeX Info: Redefining \nameref on input line 92.
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
 
-<media/ETH_logo.pdf, id=183, 663.58112pt x 167.62323pt>
+<media/ETH_logo.pdf, id=212, 663.58112pt x 167.62323pt>
 File: media/ETH_logo.pdf Graphic file (type pdf)
 <use media/ETH_logo.pdf>
 Package pdftex.def Info: media/ETH_logo.pdf used on input line 138.
 (pdftex.def)             Requested size: 172.99496pt x 43.69865pt.
-<media/logo_inspire_iwf.pdf, id=185, 117.58972pt x 82.55743pt>
+<media/logo_inspire_iwf.pdf, id=214, 117.58972pt x 82.55743pt>
 File: media/logo_inspire_iwf.pdf Graphic file (type pdf)
 <use media/logo_inspire_iwf.pdf>
 Package pdftex.def Info: media/logo_inspire_iwf.pdf used on input line 140.
@@ -832,7 +832,7 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
 ] [2
 
 
-] <media/task_description.pdf, id=224, page=1, 597.23125pt x 845.1575pt>
+] <media/task_description.pdf, id=252, page=1, 597.23125pt x 845.1575pt>
 File: media/task_description.pdf Graphic file (type pdf)
 <use media/task_description.pdf, page 1>
 Package pdftex.def Info: media/task_description.pdf, page1 used on input line 1
@@ -861,10 +861,16 @@ Package pdftex.def Info: media/task_description.pdf, page1 used on input line 1
 [3 <./media/task_description.pdf>] [4
 
 
-] (./src/acknowledgment.tex) [5
+] (./src/acknowledgment.tex) (./src/plagiarism.tex [5
 
 
 ] [6
+
+
+]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
+) [7] [8
 
 
 ] (dist//thesis.toc
@@ -875,30 +881,30 @@ File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [7])
+) [9])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
-[8] (dist//thesis.lof)
+[10] (dist//thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
-[9
+[11
 
 
 
 
-] [10
+] [12
 
 
 ] (dist//thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
-[11
+[13
 
 
-] [12
+] [14
 
 
 ] (./src/introduction.tex
@@ -1174,7 +1180,7 @@ Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
 [6]) (./src/background/stochastic_processes.tex <media/fractional_brownian_moti
-on.png, id=382, 449.68pt x 337.26pt>
+on.png, id=458, 449.68pt x 337.26pt>
 File: media/fractional_brownian_motion.png Graphic file (type png)
 <use media/fractional_brownian_motion.png>
 Package pdftex.def Info: media/fractional_brownian_motion.png used on input lin
@@ -1231,25 +1237,23 @@ mr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^A [] \OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.
 95 (\OML/cmm/m/it/10.95 s[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;
  []
 
-[11])) (./src/background/simulink.tex <media/simulink_screenshot.png, id=414, 6
+[11])) (./src/background/simulink.tex <media/simulink_screenshot.png, id=491, 6
 02.25pt x 319.94531pt>
 File: media/simulink_screenshot.png Graphic file (type png)
 <use media/simulink_screenshot.png>
 Package pdftex.def Info: media/simulink_screenshot.png used on input line 10.
 (pdftex.def)             Requested size: 426.79134pt x 226.7429pt.
 [12 <./media/simulink_screenshot.png>]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 18.
 
 LaTeX Warning: Reference `penduresponse' on page 13 undefined on input line 18.
 
 
-<media/pendmodelscreen.png, id=426, 706.64pt x 459.7175pt>
+<media/pendmodelscreen.png, id=503, 706.64pt x 459.7175pt>
 File: media/pendmodelscreen.png Graphic file (type png)
 <use media/pendmodelscreen.png>
 Package pdftex.def Info: media/pendmodelscreen.png used on input line 22.
 (pdftex.def)             Requested size: 393.63469pt x 256.0748pt.
-<media/pendulum_response.png, id=427, 936.49875pt x 406.51875pt>
+<media/pendulum_response.png, id=504, 936.49875pt x 406.51875pt>
 File: media/pendulum_response.png Graphic file (type png)
 <use media/pendulum_response.png>
 Package pdftex.def Info: media/pendulum_response.png used on input line 31.
@@ -1288,7 +1292,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 ]
 ! Undefined control sequence.
-l.20 ...\ref{sec:dynamicsystems} a system's \texti
+l.21 ...\ref{sec:dynamicsystems} a system's \texti
                                                   {state} is defined as the ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1299,7 +1303,7 @@ and I'll forget about whatever was undefined.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \def 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1311,7 +1315,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1323,7 +1327,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \def 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1335,7 +1339,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1347,7 +1351,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \def 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1359,7 +1363,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1371,7 +1375,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \def 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1383,7 +1387,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.32 \end{align}
+l.33 \end{align}
                 
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1399,7 +1403,7 @@ Underfull \vbox (badness 7433) has occurred while \output is active []
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \Pi 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1411,7 +1415,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1423,7 +1427,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1435,7 +1439,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1447,7 +1451,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1459,7 +1463,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1471,7 +1475,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1483,7 +1487,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1495,7 +1499,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1507,7 +1511,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1519,7 +1523,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1531,7 +1535,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1543,7 +1547,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1555,7 +1559,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1567,7 +1571,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \Pi 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1579,7 +1583,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1591,7 +1595,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1603,7 +1607,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1615,7 +1619,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1627,7 +1631,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1639,7 +1643,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1651,7 +1655,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1663,7 +1667,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1675,7 +1679,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1687,7 +1691,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1699,7 +1703,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1711,7 +1715,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1723,7 +1727,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.132 \end{align}
+l.133 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1735,7 +1739,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \def 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1747,7 +1751,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1759,7 +1763,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1771,7 +1775,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1783,7 +1787,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    0
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1795,7 +1799,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1807,7 +1811,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    0
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1819,7 +1823,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1831,7 +1835,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    0
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1843,7 +1847,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1855,7 +1859,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \def 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1867,7 +1871,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1879,7 +1883,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1891,7 +1895,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1903,7 +1907,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    0
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1915,7 +1919,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1927,7 +1931,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    0
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1939,7 +1943,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1951,7 +1955,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    0
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1963,7 +1967,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    \let 
-l.160 \end{align}
+l.161 \end{align}
                  
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1976,7 +1980,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [19]
-Overfull \hbox (11.97626pt too wide) in paragraph at lines 172--173
+Overfull \hbox (11.97626pt too wide) in paragraph at lines 173--174
 \T1/ptm/m/n/10.95 Although the quan-ti-ti-za-tion of an ex-trac-tion's le-gal o
 ut-put val-ues com-pletely de-fines the ex-tracted POMDP's
  []
@@ -1990,13 +1994,24 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.260   \draw[line,dashed]
+l.261   \draw[line,dashed]
                            (-5,-0.5) -- (5,-0.5);
 (That was another \errmessage.)
 
-[22] [23] [24]) (./src/methodology/validation.tex [25]
+[22] [23] [24]) (./src/methodology/validation.tex
+Underfull \vbox (badness 4859) has occurred while \output is active []
+
+[25] [26] <media/boxplotexample.png, id=596, 953.5625pt x 354.32375pt>
+File: media/boxplotexample.png Graphic file (type png)
+<use media/boxplotexample.png>
+Package pdftex.def Info: media/boxplotexample.png used on input line 43.
+(pdftex.def)             Requested size: 455.24408pt x 169.15976pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[27 <./media/boxplotexample.png>]
 ! Undefined control sequence.
-l.25 ...viour between these time steps. The \texit
+l.59 ...viour between these time steps. The \texit
                                                   {validator} can thus not p...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2004,7 +2019,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-)) (./src/implementation.tex [26]
+)) (./src/implementation.tex [28]
 Chapter 5.
 (./src/implementation/extractor.tex
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 8.
@@ -2027,7 +2042,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []|[]
  []
 
-[27
+[29
 
 
 ]
@@ -2036,13 +2051,211 @@ Overfull \hbox (3.00778pt too wide) in paragraph at lines 50--51
 ves the sim-u-la-tion model's out-put val-ues, the Simulink
  []
 
-[28] [29]
+[30] [31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[30]) (./src/implementation/validator.tex [31])) (./src/results.tex [32]
+[32]) (./src/implementation/validator.tex
+
+LaTeX Warning: Reference `subsec:validatorresults' on page 33 undefined on inpu
+t line 3.
+
+[33]
+
+LaTeX Warning: Reference `subsec:validatorresults' on page 34 undefined on inpu
+t line 11.
+
+)) (./src/results.tex [34]
 Chapter 6.
-(./src/results/extractor.tex) (./src/results/validator.tex)) (./src/conclusion.
-tex
+! Missing delimiter (. inserted).
+<to be read again> 
+                   }
+l.24 \end{align}
+                
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \let 
+l.24 \end{align}
+                
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
+<media/bw/bw_const_response.png, id=646, 449.68pt x 337.26pt>
+File: media/bw/bw_const_response.png Graphic file (type png)
+<use media/bw/bw_const_response.png>
+Package pdftex.def Info: media/bw/bw_const_response.png used on input line 28.
+(pdftex.def)             Requested size: 341.43785pt x 256.0748pt.
+<media/bw/bw_step_response.png, id=647, 449.68pt x 337.26pt>
+File: media/bw/bw_step_response.png Graphic file (type png)
+<use media/bw/bw_step_response.png>
+Package pdftex.def Info: media/bw/bw_step_response.png used on input line 36.
+(pdftex.def)             Requested size: 341.43785pt x 256.0748pt.
+<media/bw/bw_const_mdl.png, id=653, 643.40375pt x 412.54124pt>
+File: media/bw/bw_const_mdl.png Graphic file (type png)
+<use media/bw/bw_const_mdl.png>
+Package pdftex.def Info: media/bw/bw_const_mdl.png used on input line 51.
+(pdftex.def)             Requested size: 399.37744pt x 256.0748pt.
+<media/bw/bw_step_mdl.png, id=654, 651.43375pt x 411.5375pt>
+File: media/bw/bw_step_mdl.png Graphic file (type png)
+<use media/bw/bw_step_mdl.png>
+Package pdftex.def Info: media/bw/bw_step_mdl.png used on input line 59.
+(pdftex.def)             Requested size: 405.34593pt x 256.0748pt.
+<media/bw/bw_extract_mdl.png, id=655, 649.42625pt x 417.56pt>
+File: media/bw/bw_extract_mdl.png Graphic file (type png)
+<use media/bw/bw_extract_mdl.png>
+Package pdftex.def Info: media/bw/bw_extract_mdl.png used on input line 67.
+(pdftex.def)             Requested size: 398.28987pt x 256.0748pt.
+! Undefined control sequence.
+\@thehead ...\if@twoside \protect \mychpstyleintl 
+                                                  \else \def@foot \fi }}\hf@...
+l.79 \item i
+            nput: $u$, $u_{min} = 0$, $u_{max} = 6$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]|[]
+ []
+
+[35
+
+
+] [36 <./media/bw/bw_const_response.png (PNG copy)> <./media/bw/bw_step_respons
+e.png (PNG copy)>] [37 <./media/bw/bw_const_mdl.png> <./media/bw/bw_step_mdl.pn
+g>] [38 <./media/bw/bw_extract_mdl.png>] <media/bw/bw_val_const_real_box.png, i
+d=674, 860.816pt x 362.153pt>
+File: media/bw/bw_val_const_real_box.png Graphic file (type png)
+<use media/bw/bw_val_const_real_box.png>
+Package pdftex.def Info: media/bw/bw_val_const_real_box.png used on input line 
+98.
+(pdftex.def)             Requested size: 512.1496pt x 215.46436pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 98--98
+ [] 
+ []
+
+<media/bw/bw_val_const_state_box.png, id=675, 860.816pt x 364.562pt>
+File: media/bw/bw_val_const_state_box.png Graphic file (type png)
+<use media/bw/bw_val_const_state_box.png>
+Package pdftex.def Info: media/bw/bw_val_const_state_box.png used on input line
+ 106.
+(pdftex.def)             Requested size: 512.1496pt x 216.8976pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 106--106
+ [] 
+ []
+
+<media/bw/bw_val_const_state_corr.png, id=676, 860.816pt x 367.774pt>
+File: media/bw/bw_val_const_state_corr.png Graphic file (type png)
+<use media/bw/bw_val_const_state_corr.png>
+Package pdftex.def Info: media/bw/bw_val_const_state_corr.png used on input lin
+e 114.
+(pdftex.def)             Requested size: 512.1496pt x 218.80861pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 114--114
+ [] 
+ []
+
+<media/bw/bw_val_const_real_mean.png, id=677, 860.816pt x 370.986pt>
+File: media/bw/bw_val_const_real_mean.png Graphic file (type png)
+<use media/bw/bw_val_const_real_mean.png>
+Package pdftex.def Info: media/bw/bw_val_const_real_mean.png used on input line
+ 122.
+(pdftex.def)             Requested size: 512.1496pt x 220.71959pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 122--122
+ [] 
+ []
+
+
+LaTeX Warning: Reference `' on page 39 undefined on input line 134.
+
+<media/bw/bw_val_step_real_box.png, id=684, 860.816pt x 377.41pt>
+File: media/bw/bw_val_step_real_box.png Graphic file (type png)
+<use media/bw/bw_val_step_real_box.png>
+Package pdftex.def Info: media/bw/bw_val_step_real_box.png used on input line 1
+41.
+(pdftex.def)             Requested size: 512.1496pt x 224.54158pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 141--141
+ [] 
+ []
+
+[39 <./media/bw/bw_val_const_real_box.png (PNG copy)>] [40 <./media/bw/bw_val_c
+onst_state_box.png (PNG copy)> <./media/bw/bw_val_const_state_corr.png (PNG cop
+y)>] <media/bw/bw_val_step_state_box.png, id=696, 860.816pt x 380.622pt>
+File: media/bw/bw_val_step_state_box.png Graphic file (type png)
+<use media/bw/bw_val_step_state_box.png>
+Package pdftex.def Info: media/bw/bw_val_step_state_box.png used on input line 
+149.
+(pdftex.def)             Requested size: 512.1496pt x 226.45256pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 149--149
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<media/bw/bw_val_step_state_corr.png, id=697, 860.816pt x 383.031pt>
+File: media/bw/bw_val_step_state_corr.png Graphic file (type png)
+<use media/bw/bw_val_step_state_corr.png>
+Package pdftex.def Info: media/bw/bw_val_step_state_corr.png used on input line
+ 157.
+(pdftex.def)             Requested size: 512.1496pt x 227.88582pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 157--157
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<media/bw/bw_val_step_real_mean.png, id=698, 860.816pt x 374.198pt>
+File: media/bw/bw_val_step_real_mean.png Graphic file (type png)
+<use media/bw/bw_val_step_real_mean.png>
+Package pdftex.def Info: media/bw/bw_val_step_real_mean.png used on input line 
+165.
+(pdftex.def)             Requested size: 512.1496pt x 222.63058pt.
+
+Overfull \hbox (56.90552pt too wide) in paragraph at lines 165--165
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[41 <./media/bw/bw_val_const_real_mean.png (PNG copy)> <./media/bw/bw_val_step_
+real_box.png (PNG copy)>]
+
+LaTeX Warning: Reference `' on page 42 undefined on input line 175.
+
+[42 <./media/bw/bw_val_step_state_box.png (PNG copy)> <./media/bw/bw_val_step_s
+tate_corr.png (PNG copy)>]
+
+LaTeX Warning: Reference `' on page 43 undefined on input line 177.
+
+) (./src/discussion.tex [43 <./media/bw/bw_val_step_real_mean.png (PNG copy)>] 
+[44
+
+
+]
+Chapter 7.
+) (./src/conclusion.tex
 ! Undefined control sequence.
 \@thehead ...\if@twoside \protect \mychpstyleintl 
                                                   \else \def@foot \fi }}\hf@...
@@ -2059,14 +2272,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []|[]
  []
 
-[33
-
-
-] [34
+[45] [46
 
 
 ]
-Chapter 7.
+Chapter 8.
 ) (./src/outlook.tex
 ! Undefined control sequence.
 \@thehead ...\if@twoside \protect \mychpstyleintl 
@@ -2084,16 +2294,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []|[]
  []
 
-[35] [36
+[47] [48
 
 
 ]
-Chapter 8.
+Chapter 9.
 )
 ! Undefined control sequence.
 \@thehead ...\if@twoside \protect \mychpstyleintl 
                                                   \else \def@foot \fi }}\hf@...
-l.215 \clearpage
+l.217 \clearpage
                 
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2106,7 +2316,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []|[]
  []
 
-[37] (./src/appendix.tex [38
+[49] (./src/appendix.tex [50
 
 
 
@@ -2116,7 +2326,7 @@ Appendix A.
 ! Undefined control sequence.
 \@thehead ...\if@twoside \protect \mychpstyleintl 
                                                   \else \def@foot \fi }}\hf@...
-l.221 \clearpage
+l.223 \clearpage
                 
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2129,32 +2339,32 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []|[]
  []
 
-[39] (dist//thesis.bbl [40
+[51] (dist//thesis.bbl [52
 
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 229.
-[41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 229.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
+[53]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
 (dist//thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 229.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 229.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 231.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 231.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 229.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 231.
  ) 
 Here is how much of TeX's memory you used:
- 19629 strings out of 493633
- 356776 string characters out of 3143378
- 451235 words of memory out of 3000000
- 22320 multiletter control sequences out of 15000+200000
+ 19774 strings out of 493633
+ 360158 string characters out of 3143378
+ 452279 words of memory out of 3000000
+ 22411 multiletter control sequences out of 15000+200000
  57725 words of font info for 75 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 65i,18n,95p,1239b,995s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 65i,18n,95p,1246b,995s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -2162,21 +2372,22 @@ live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texli
 ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive
 /2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
 011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2011
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2011/t
-exmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/texmf-dis
-t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts
-/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
-urw/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/
-utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
-></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loc
-al/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dist//thesis.pdf (55 pages, 559510 bytes).
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2011/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
+pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw
+/times/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utm
+b8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on dist//thesis.pdf (69 pages, 709426 bytes).
 PDF statistics:
- 686 PDF objects out of 1000 (max. 8388607)
- 588 compressed objects within 6 object streams
- 126 named destinations out of 1000 (max. 500000)
- 426 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 862 PDF objects out of 1000 (max. 8388607)
+ 732 compressed objects within 8 object streams
+ 162 named destinations out of 1000 (max. 500000)
+ 552 words of extra memory for PDF output out of 10000 (max. 10000000)
 
