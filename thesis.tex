@@ -28,7 +28,11 @@
 \usepackage{helvet}   % sets sans serif font
 \usepackage[T1]{fontenc}
 
+\usepackage{listings}
+
 \usepackage{import}
+
+
 
 \setcounter{secnumdepth}{3}
 % \setcounter{tocdepth}{3}
@@ -42,8 +46,8 @@
 		bookmarks,
 		bookmarksopen=true,
 		bookmarksnumbered=true,
-		pdfauthor={My Name},
-		pdftitle={Thesis Title},
+		pdfauthor={Oliver Stollmann},
+		pdftitle={Automatic extraction of Partially Observable Markov Decision Processes from Simulink models},
 		colorlinks,
 		linkcolor=black,
 		citecolor=black,
@@ -57,7 +61,7 @@
 		pdfpagelabels=true]{hyperref}
 	\pdfcompresslevel=9
 	\pdfoutput=1
-	\pdfminorversion=6
+	\pdfminorversion=0
 	\DeclareGraphicsExtensions{.pdf,.png}
 }{
 	\usepackage{graphicx}
@@ -181,6 +185,11 @@
 \import{src/}{plagiarism}
 
 \tableofcontents
+\addcontentsline{toc}{chapter}{Table of Contents}
+\cleardoublepage
+
+\import{src/}{abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
 \cleardoublepage
 
 \listoffigures
@@ -204,10 +213,9 @@
 \import{src/}{background}
 \import{src/}{methodology}
 \import{src/}{implementation}
-\import{src/}{results}
+\import{src/}{evaluation}
 \import{src/}{discussion}
 \import{src/}{conclusion}
-\import{src/}{outlook}
 
 % --------------------------------------------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------------------------------------------------------------------------------------------------------

@@ -24,7 +24,7 @@ Dynamic systems are systems whose development over time can be described by a si
 \label{1dpendulum}
 \end{figure}
 
-A common example of dynamic systems is the ideal one-dimensional mathematical pendulum seen in Figure~\ref{1dpendulum}. By considering the forces on the pendulum or it's energy it is quite simple to deduce the following differential equation to describe the system:
+A common example of dynamic systems is the ideal one-dimensional mathematical pendulum seen in Figure~\ref{1dpendulum}. By considering the forces on the pendulum or it's energy it is quite simple to deduce the following differential equation to describe the system \cite{physics}:
 
 \[
 0 = \frac{g}{l}\cdot sin(\phi(t))+\ddot{\phi}(t)
@@ -54,7 +54,7 @@ q[n+1] &=\left q[n] + x[n] + e[n]\right \nonumber\\
 y[n] &=\left q[n] + x[n]\right \nonumber
 \end{align}
 
-where $x[n]$ is the input, $e[n]$ is white noise and $y[n]$ the output. If this system is provided with the same input signal twice, the resulting output signal is likely to be slightly different. This is caused by the inherit randomness of a white noise input.
+where $x[n]$ is the input, $e[n]$ is white noise and $y[n]$ the output at time $n$. If this system is provided with the same input signal twice, the resulting output signal is likely to be slightly different. This is caused by the inherit randomness of a white noise input.
 
 The above example touches on an important point in the field of signal theory and system dynamics. The pendulum example also differs from the white noise example because the former is defined in \textit{continuous time} whilst the latter is defined in \textit{discrete time}. A continuous time system is defined for any time value $t \in T$, where $T$ is the system's time space. A discrete time system is, on the other hand, only defined on a subset of the time line $T$, at discrete times $n \in N \subset T$.
 
@@ -74,11 +74,26 @@ N &= n\cdot T_s\ \forall\ (n\ \in\ \mathbb{Z}) \nonumber \\
   &= [-\infty \cdot T_s,-(\infty  -1) \cdot T_s,\cdots,-1 \cdot T_s,0,-1 \cdot T_s,\cdots,(\infty-1) \cdot T_s,\infty \cdot T_s]. \nonumber
 \end{align}
 
-It is easy to see here that a discrete time system contains less information than a continuous time signal [MAYBE FIGURE HERE]. Nonetheless discrete time signals are prevalent because computers can only deal with digital (ie. discrete) signals.
+\begin{figure}
+\begin{center}
+\includegraphics[width=12cm]{media/disc_sine_cont}\\
+\end{center}
+\caption{Sampling of a continuous sine signal with sampling rate: $\frac{1}{2}$Hz \cite{jos_sine}}
+\label{disc_sine_orig}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=12cm]{media/disc_sine_disc}\\
+\end{center}
+\caption{Discrete signal produced by sampling a continuous sine signal  with sampling rate: $\frac{1}{2}$Hz \cite{jos_sine}}
+\label{disc_sine_disc}
+\end{figure}
 
 
+It is easy to see here that a discrete time system contains less information than a continuous time system. Figure~\ref{disc_sine_orig} shows a sine curve sampled every second (sample points are marked by stars). Figure~\ref{disc_sine_disc} shows the resulting discrete signal. The information density difference between the orignal continuous signal and the sampled discrete signal becomes obvious.  Nonetheless discrete time signals are prevalent because digital systems can only deal with digital (ie. discrete) signals.
 
-The last important property of dynamic systems is the notion of \textit{state}. A system's state is the smallest set of internal and/or external values that represent the entire state of the system. This means that a system's state completely describes that systems condition at a certain time. Coming back to the pendulum example it is clear that the entire system's condition can be described by two variables, the current angle $\phi(t)$ and the current angular velocity $\dot{\phi}(t)$. A definition of these two values at time $t$ completely define the system's condition in past and future times $t\pm\tau \in T$. The set of all possible states that a system may find itself in is defined as the \textit{state space} of that system.
+The last important property of dynamic systems is the notion of \textit{state}. A system's state is the smallest set of internal and/or external values that represent the entire state of the system. This means that a system's state completely describes that systems condition at a certain time. Coming back to the pendulum example it is clear that the entire system's condition can be described by two variables, the current angle $\phi(t)$ and the current angular velocity $\dot{\phi}(t)$. A definition of these two values at time $t$ completely define the system's condition in past and future times $t\pm (\tau \in \mathbb{R})$. The set of all possible states that a system may find itself in is defined as the \textit{state space} of that system.
 
 \textit{Deterministic dynamic systems} and \textit{randomized dynamic systems} are two extremely useful mathematical constructs and serve as the basis of the more advanced theory of the next few sections.
 

@@ -1,7 +1,7 @@
 \subsection{Markov Chains}
 \label{subsec:markovchains}
 
-A Markov Chain is a stochastic process that describes the dynamics of a probabilistic system by defining the conditional transition probabilities \(Pr(X_{n+1}=x|X_n=x_n)\) between members of a finite or infinite state-space. Markov chains posess the Markov Property,
+A Markov Chain is a stochastic process that describes the dynamics of a probabilistic system by defining the conditional transition probabilities \(Pr(X_{n+1}=x|X_n=x_n)\) between members of a finite or infinite state-space. Markov chains posess the Markov Property
 
 \[
 Pr(X_{n+1}=x|X_1=x_1,X_2=x_2,...,X_n=x_n) = Pr(X_{n+1}=x|X_n=x_n),
@@ -46,7 +46,7 @@ If a Markov Chain's state-space is \textit{finite} the transition probabilities 
 \label{3statemarkovchain}
 \end{figure}
 
-Figure~\ref{3statemarkovchain} shows an example of a three state Markov Chain. The transition probabilities matrix is as follows:
+Figure~\ref{3statemarkovchain} shows an example of a three state Markov Chain. The transition probabilities matrix is 
 
 \[
 Pr =
@@ -54,8 +54,17 @@ Pr =
   0.2 & 0.7 & 0.1 \\
   0 & 0 & 1 \\
   0.5 & 0 & 0.5
- \end{pmatrix}
+ \end{pmatrix},
 \]
+
+and the state space $S$ contains only three states:
+
+\[
+S =
+ \begin{pmatrix}
+  A & B & C \end{pmatrix}.
+\]
+
 
 Looking at this transition probability matrix or Figure~\ref{3statemarkovchain}, we can, for example, deduce that if the system is currently in state A the probability of transitioning to state B in the next step is 0.7, the probability of transitioning to state C is 0.1 and the probability of remaining in state A is 0.2. Interestingly, because the second row only contains a single non-zero value, which must thus be equal to 1, the transition from state B is entirely deterministic, meaning that it will always be the same.
 

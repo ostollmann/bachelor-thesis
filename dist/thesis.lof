@@ -1,33 +1,36 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces 1-dimensional mathematical pendulum\relax }}{5}{figure.caption.7}
-\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Fractional Brownian motion with Hurst parameter of $0.4$\relax }}{8}{figure.caption.8}
-\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Three-State Markov Chain\relax }}{8}{figure.caption.9}
-\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces MDP control loop\relax }}{10}{figure.caption.10}
-\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces POMDP control loop (offline planning)\relax }}{11}{figure.caption.11}
-\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces Screenshot of Simulink\relax }}{12}{figure.caption.12}
-\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces 1-dimensional mathematical pendulum model\relax }}{14}{figure.caption.13}
-\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces 1D mathematical pendulum response\relax }}{14}{figure.caption.14}
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces 1-dimensional mathematical pendulum\relax }}{5}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Sampling of a continuous sine signal with sampling rate: $\frac {1}{2}$Hz \cite {jos_sine}\relax }}{7}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Discrete signal produced by sampling a continuous sine signal with sampling rate: $\frac {1}{2}$Hz \cite {jos_sine}\relax }}{7}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces Fractional Brownian motion with Hurst parameter of $0.4$\relax }}{8}{figure.caption.11}
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces Three-State Markov Chain\relax }}{9}{figure.caption.12}
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces MDP control loop\relax }}{11}{figure.caption.13}
+\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces POMDP control loop (offline planning)\relax }}{12}{figure.caption.14}
+\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Screenshot of Simulink\relax }}{13}{figure.caption.15}
+\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces 1-dimensional mathematical pendulum model\relax }}{15}{figure.caption.16}
+\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces 1D mathematical pendulum response\relax }}{15}{figure.caption.17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Markov Property\relax }}{22}{figure.caption.16}
-\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Example box plots\relax }}{27}{figure.caption.18}
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Simulink/POMDP Interfaces\relax }}{18}{figure.caption.18}
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Markov Property\relax }}{25}{figure.caption.20}
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Example box plots\relax }}{30}{figure.caption.22}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 5.1}{\ignorespaces Example extraction configuration\relax }}{36}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Response of Butterworth-Filter system to constant input\relax }}{36}{figure.caption.19}
-\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Response of Butterworth-Filter system to a scaled step input (step at t=10)\relax }}{36}{figure.caption.20}
-\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Implementation of a Butterworth-Filter in Simulink with a constant input\relax }}{37}{figure.caption.21}
-\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Implementation of a Butterworth-Filter in Simulink with a scaled step input (step at t=10) MUST FIX FOR 0 BOUND!!\relax }}{37}{figure.caption.22}
-\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Butterworth-Filter Simulink model prepared for MDP extraction\relax }}{38}{figure.caption.23}
-\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Box plots of output value distributions of Simulink and MDP responses to signal $u_1(t)$\relax }}{39}{figure.caption.24}
-\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Box plots of state-index distributions of Simulink and MDP responses to signal $u_1(t)$\relax }}{40}{figure.caption.25}
-\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Plot of state-index distributions correlation of the Simulink and MDP responses to signal $u_1(t)$\relax }}{40}{figure.caption.26}
-\contentsline {figure}{\numberline {\relax 6.9}{\ignorespaces Plot of the real output value mean of Simulink and MDP responses to signal $u_1(t)$\relax }}{41}{figure.caption.27}
-\contentsline {figure}{\numberline {\relax 6.10}{\ignorespaces Box plots of output value distributions of Simulink and MDP responses to signal $u_2(t)$\relax }}{41}{figure.caption.28}
-\contentsline {figure}{\numberline {\relax 6.11}{\ignorespaces Box plots of state-index distributions of Simulink and MDP responses to signal $u_2(t)$\relax }}{42}{figure.caption.29}
-\contentsline {figure}{\numberline {\relax 6.12}{\ignorespaces Plot of state-index distributions correlation of the Simulink and MDP responses to signal $u_2(t)$\relax }}{42}{figure.caption.30}
-\contentsline {figure}{\numberline {\relax 6.13}{\ignorespaces Plot of the real output value mean of Simulink and MDP responses to signal $u_2(t)$\relax }}{43}{figure.caption.31}
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 6.1}{\ignorespaces Response of Butterworth-Filter system to constant input\relax }}{40}{figure.caption.24}
+\contentsline {figure}{\numberline {\relax 6.2}{\ignorespaces Response of Butterworth-Filter system to a scaled step input (step at t=10)\relax }}{40}{figure.caption.25}
+\contentsline {figure}{\numberline {\relax 6.3}{\ignorespaces Implementation of a Butterworth-Filter in Simulink with a constant input\relax }}{41}{figure.caption.26}
+\contentsline {figure}{\numberline {\relax 6.4}{\ignorespaces Implementation of a Butterworth-Filter in Simulink with a scaled step input (step at t=10) MUST FIX FOR 0 BOUND!!\relax }}{42}{figure.caption.27}
+\contentsline {figure}{\numberline {\relax 6.5}{\ignorespaces Butterworth-Filter Simulink model prepared for MDP extraction\relax }}{42}{figure.caption.28}
+\contentsline {figure}{\numberline {\relax 6.6}{\ignorespaces Box plots of output value distributions of Simulink and MDP responses to signal $u_1(t)$\relax }}{43}{figure.caption.29}
+\contentsline {figure}{\numberline {\relax 6.7}{\ignorespaces Box plots of state-index distributions of Simulink and MDP responses to signal $u_1(t)$\relax }}{44}{figure.caption.30}
+\contentsline {figure}{\numberline {\relax 6.8}{\ignorespaces Plot of state-index distributions correlation of the Simulink and MDP responses to signal $u_1(t)$\relax }}{44}{figure.caption.31}
+\contentsline {figure}{\numberline {\relax 6.9}{\ignorespaces Plot of the real output value mean of Simulink and MDP responses to signal $u_1(t)$\relax }}{45}{figure.caption.32}
+\contentsline {figure}{\numberline {\relax 6.10}{\ignorespaces Box plots of output value distributions of Simulink and MDP responses to signal $u_2(t)$\relax }}{46}{figure.caption.33}
+\contentsline {figure}{\numberline {\relax 6.11}{\ignorespaces Box plots of state-index distributions of Simulink and MDP responses to signal $u_2(t)$\relax }}{46}{figure.caption.34}
+\contentsline {figure}{\numberline {\relax 6.12}{\ignorespaces Plot of state-index distributions correlation of the Simulink and MDP responses to signal $u_2(t)$\relax }}{47}{figure.caption.35}
+\contentsline {figure}{\numberline {\relax 6.13}{\ignorespaces Plot of the real output value mean of Simulink and MDP responses to signal $u_2(t)$\relax }}{47}{figure.caption.36}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

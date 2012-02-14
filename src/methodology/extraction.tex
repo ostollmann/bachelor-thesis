@@ -2,7 +2,7 @@
 
 Simulink models represent dynamic systems in a number of different ways. Systems can be described through a graphical representation of differential equations (see example in section~\ref{sec:simulink}). Systems can also be described by transfer functions or state machines. Simulink offers many different representational forms. Almost all of these representational forms have in common that they represent \textit{rules} of some sort. When asked to simulate these systems Simulink solves these \textit{rules} in real time and produces the system response. MDPs and POMDPs are much simpler constructs that do not require real-time solvers because the system dynamics is represented as simple state transitions probabilities. Given an MDP or a POMDP representation of a dynamic system, the simulation thereof is merely a question of random sampling.
 
-In order to build these transition probability matrices the \textit{extractor} simulates and observes the given Simulink model enough times and with enough different inputs to build up the POMDP's transition probability matrix. In parallel the \textit{extractor} also observes the Simulink model's reward and observation outputs and incrementally builds the reward matrix and the conditional observation probability matrix. The following sections go through the extractor's different functions and discusses them from a high-level point of view.
+In order to build these transition probability matrices the \textit{extractor} simulates and observes the given Simulink model multiple times and with different inputs to build up the POMDP's transition probability matrix. In parallel the \textit{extractor} also observes the Simulink model's reward and observation outputs and incrementally builds the reward matrix and the conditional observation probability matrix. The following sections go through the extractor's different functions and discusses them from a high-level point of view.
 
 \subsection{Approach}
 \label{subsec:approach}
@@ -11,16 +11,102 @@ The approach chosen for the extraction of Partially Observable Markov Decision P
 \[
 Pr(s_{t+1} = s'|s_t = s, a_t = a),
 \]
-can be extracted simply by counting the number of times certain sink states, $s_{t+1}$, were reached and normalizing the count vector. This is exactly what the extraction algorithm does for every possible source state given every possible action. In parallel, reward and observation outputs are observed to build the reward model and the conditional observation probabilities described in more detail in sections~\ref{subsec:mdp} and \ref{subsec:pomdp}. The example in section~\ref{sec:extractexample} presents this process in more detail.
+can be extracted simply by counting the number of times certain sink states, $s_{t+1}$, were reached and normalizing the count vector. This is exactly what the extraction algorithm does for every possible source state given every possible action. In parallel, reward and observation outputs are observed to build the reward model and the conditional observation probabilities described in more detail in sections~\ref{subsec:mdp} and \ref{subsec:pomdp}. The example in section~\ref{subsec:extractexample} presents this process in more detail.
 
 Given a simple input/output model, boundaries for the inputs and boundaries for the outputs, the extractor will extract a POMDP by simulating the model and observing its response. This extraction involves producing actions from input value boundaries, identifying states and building a state space, identifying observations and building an observation space and handling simulation errors and states outside the permitted bounds.
+
+\subsection{Simulink and POMDP Interface}
+\label{subsec:extractoveriew}
+
+Using the schematic in figure~\ref{simulinkpomdpinterface}, this section aims to provide an overview of the interfaces between the Simulink model, the extraction algorithm and the Partially Observable Markov Decision Process.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+                    semithick]
+  \tikzstyle{block}=[draw,rectangle,text=black]
+
+
+  \def\bigrectangle{-- ++(12cm,0cm) -- ++(0cm,7cm) -- ++(-12cm,0cm) -- cycle}
+  \def\smallrectangle{-- ++(6cm,0cm) -- ++(0cm,5cm) -- ++(-6cm,0cm) -- cycle}
+  \draw[dashed,red] (0,0) \bigrectangle;
+  \draw[dotted,blue] (3,1) \smallrectangle;
+
+  \node[red] at (4.0,6.5) {Partially Observable Markov Decision Process};
+  \node[blue] at (4.6,5.5) {Simulink Model};
+  
+  % MDP Inputs
+  \node at (-1.1,3.45) {action};
+  \draw[->,dashed] (-2.0,3.2) -- (-0.2,3.2);
+  \node at (-1.5,5.25) {source-state};
+  \draw[->,dashed] (-2.0,5.0) -- (-0.2,5.0);
+  \node at (-1.5,1.65) {random input};
+  \draw[->,dashed] (-2.0,1.4) -- (2.9,1.4);
+
+  % MDP Outputs
+  \node at (13.5,1.25) {reward};
+  \draw[->,dashed] (12.2,1.0) -- (14,1.0);
+  \node at (13.5,2.95) {observation};
+  \draw[->,dashed] (12.2,2.7) -- (14,2.7);
+  \node at (13.5,5.15) {sink-state};
+  \draw[->,dashed] (12.2,4.9) -- (14,4.9);
+
+  % Simulink Inputs
+  \node at (1.65,5.25) {system state};
+  \draw[->,dotted] (0.1,5.0) -- (2.9,5.0);
+
+  \node at (2.0,4.25) {input 1};
+  \draw[->,dotted] (1,4.0) -- (2.9,4.0);
+  \node at (2.0,3.45) {input 2};
+  \draw[->,dotted] (1,3.2) -- (2.9,3.2);
+  \node at (2.0,2.65) {input 3};
+  \draw[->,dotted] (1,2.4) -- (2.9,2.4);
+  \draw[-,dotted] (1,2.389) -- (1,4.045);
+  \draw[->,dotted] (0.1,3.2) -- (1,3.2);
+
+
+  % Simulink Outputs
+  \node at (9.9,5.95) {output 1};
+  \draw[-,dotted] (9.0,5.7) -- (11,5.7);
+  \node at (9.9,5.15) {output 2};
+  \draw[-,dotted] (9.0,4.9) -- (11,4.9);
+  \node at (9.9,4.35) {output 3};
+  \draw[-,dotted] (9.0,4.1) -- (11,4.1);
+  \draw[-,dotted] (10.96,4.09) -- (10.96,5.745);
+  \draw[->,dotted] (10.96,4.9) -- (11.9,4.9);
+
+  \node at (9.9,3.35) {output 4};
+  \draw[-,dotted] (9.0,3.1) -- (11,3.1);
+  \node at (9.9,2.55) {output 5};
+  \draw[-,dotted] (9.0,2.3) -- (11,2.3);
+  \draw[-,dotted] (10.96,3.11) -- (10.96,2.255);
+  \draw[->,dotted] (10.96,2.7) -- (11.9,2.7);
+
+  \node at (9.9,1.55) {output 6};
+  \draw[-,dotted] (9.0,1.3) -- (11,1.3);
+  \draw[-,dotted] (10.96,1.310) -- (10.96,0.954);
+  \draw[->,dotted] (10.96,1.0) -- (11.9,1.0);
+
+\end{tikzpicture}
+\end{center}
+\caption{Simulink/POMDP Interfaces}
+\label{simulinkpomdpinterface}
+\end{figure}
+
+As discussed in section~\ref{subsec:approach}, the extractor works by providing the Simulink model with inputs and observing it's outputs. In order to transform the Simulink model into a POMDP model, Simulink's notion of inputs, outputs and system states must be mapped to the POMDP's base constructs, namely, states, actions, observations and rewards. Figure~\ref{simulinkpomdpinterface} and the rest of this section describe the required transformations between Simulink and POMDP constructs.
+
+On the left side of figure~\ref{simulinkpomdpinterface} one can observe that the extraction algorithm provides three inputs. Firstly it provides a source state and an action and secondly a random number input. The source-state and the action are POMDP constructs, whilst the random input is simply the model's randomness provider (see section~\ref{implextrrand}). Because the Simulink model is based on individual inputs and not on actions, the extraction algorithm must convert the given action into a set of valid Simulink inputs before feeding these to the model. Because the action set is created from the cartesian product of all permitted input values, the action to input transformer simply splits the action into its individual inputs (see section~\ref{subsec:inputsactions} for more details about the action set). Similarily, whilst the POMDP works with state indices, the Simulink model must be provided with an actual Simulink simulation state object. These simulation state objects are saved whenever new states are discovered and the extraction algorithm then merely feeds them back to the Simulink model when the discovered states serve as a source states.
+
+The individual Simulink outputs and their POMDP equivalents can be seen on the other side of figure~\ref{simulinkpomdpinterface}. For the outputs the transformation is inverted, as Simulink outputs must be transformed into POMDP states, observations and rewards. The first $n_s$ outputs are state outputs, meaning that they identify the state the system is in (see section~\ref{subsec:stateoutput}). $n_s$ is an extraction configuration parameter that defines the number of state outputs (see figure~\ref{bw_extract_mdl} for an example of a model prepared for extraction and figure~\ref{exmpl_extract_conf} for an example configuration, showing amongst other things the $n_s$ setting). The next $n_o$ outputs are observation outputs, meaning that they define the observation state. $n_o$ is also a configuration parameter that must be defined before an extraction occurs. The last output is interpreted as the immediate transition reward (see section~\ref{subsec:mdp}) and is taken as-is to build the reward model.
+
+The conversion between POMDP values and Simulink values occurs before and after \textit{every} simulation as the POMDP's conditional transition probability matrix, conditional observation probability matrix and reward model are gradually built.
 
 \subsection{System State and System Output}
 \label{subsec:stateoutput}
 
 As described in section~\ref{sec:dynamicsystems} a system's \texti{state} is defined as the smallest possible set of internal and/or external values that represent the system's condition at a certain time. This notion of state in dynamic systems maps exactly onto the idea of states of stochastic processes. Unfortunately an extraction based on applying different inputs to a system and observing it's outputs does not provide \textit{state information} in the above sense, because the relationship between system output and system state is not biconditional. This distinction entails the biggest simplification made by the product of this work, the POMDP extractor.
 
-The extractor does not distinguish between system output and system state as it makes the assumption that \textit{if two system responses are equal the two states of the system are equal}. This simplification was made for two reasons. Firstly, although Simulink offers a way of saving a simulated system's internal state, it does not provide a simple way of comparing two system states. Secondly this simplifications greatly decreases the size of the extracted POMDPs state space. Section [XXX] discusses the difficulty of extremely large state spaces in mode detail.
+The extractor does not distinguish between system output and system state as it makes the assumption that \textit{if two system responses are equal the two states of the system are equal}. This simplification was made for two reasons. Firstly, although Simulink offers a way of saving a simulated system's internal state, it does not provide a simple way of comparing two system states. Secondly this simplifications greatly decreases the size of the extracted POMDPs state space. Chapter~\ref{discussion} touches upon the difficulty associated with extremely large state spaces.
 
 A short example may make this rather large simplification clearer. The mathematical pendulum example (see Figure~\ref{1dpendulum}) introduced in section~\ref{sec:dynamicsystems} provides a good basis. As discussed in section~\ref{sec:dynamicsystems} the pendulum system's condition can be described by only two variable, the angular position $\phi(t)$ and the angular velocity $\dot{\phi}(t)$ of the pendulum. Knowing these two values, the system's past can be reconstructed and it's future predicted. If a POMDP extraction of this system were configured with only the angular position $\phi(t)$ as an output, the extractor would interpret the two states,
 
@@ -34,7 +120,7 @@ A short example may make this rather large simplification clearer. The mathemati
 
 as equal because only the values $\phi_1(\tilde{t})$ and $\phi_2(\tilde{t})$ would be compared. With this simple example the dangers associated with ignoring the ramifications of this simplification become strikingly obvious. The pendulum in state $x_1$ will in the future swing in one direction, whilst the pendulum in state $x_2$ will swing in the opposite direction, clearly a different development, yet deemed equal by the extraction algorithm. In this case the problem could be overcome by defining a second output, the angular velocity $\dot{\phi}(t)$, that would then make the relationship between system state and system output biconditional. With such a configuration the extractor would no longer deem $x_1$ and $x_2$ to be equal system states and thus produce a more realistic POMDP.
 
-A more detailed analysis of the ramifications of this simplification can also be found in section [XXX].
+A more detailed analysis of the ramifications of this simplification can also be found in chapter~\ref{discussion}.
 
 \subsection{Output Discretization}
 \label{subsec:outputdiscretization}
@@ -43,9 +129,9 @@ Even though the extraction's source model may be a \textit{continuous} system, t
 \[
 y(t) = sin(x(t)),
 \]
-where, even though the sine functions codomain is limited, an infinite number of outputs exist. This stems from the fact that the number of values between $-1$ and $1$ is infinite in a continuous system. In order to produce a finite state space, the POMDP extractor must thus convert the continous outputs to discrete outputs. This process is sometimes referred to as \textit{binning}, whereby ranges of continuous values are lumped together into a single discretized value.
+where, even though the sine functions codomain is limited, an infinite number of outputs exist. This stems from the fact that the number of values in the range $[-1,1]\in\mathbb{R}$ is infinite in a continuous system. In order to produce a finite state space, the POMDP extractor must thus convert the continous outputs to discrete outputs. This process is sometimes referred to as \textit{binning}, whereby ranges of continuous values are lumped together into a single discretized value.
 
-The quantitization approach chosen for the POMDP extractor is based on \textit{rounding}. For each configured output $i$, the configuration must also contain a rounding parameter $n_i$, which is then used to round Simulink output values to the nearest multiple of $10^{n_i}$. This means that given a rounding parameter of $2$, the values $x_1=23.1$, $x_2=3043$, $x_3=100000$ and $x_4=100001$ would be discretized to $\hat{x}_1=0$, $\hat{x}_2=3000$, $\hat{x}_3=100000$ and $\hat{x}_4=100000$, respectively.
+The quantitization approach chosen for the POMDP extractor is based on \textit{rounding}. For each configured output $i$, the configuration must also contain a rounding parameter $n_i \in \mathbb{Z}$, which is then used to round Simulink output values to the nearest multiple of $10^{n_i}$. This means that given a rounding parameter of $2$, the values $x_1=23.1$, $x_2=3043$, $x_3=100000$ and $x_4=100001$ would be discretized to $\hat{x}_1=0$, $\hat{x}_2=3000$, $\hat{x}_3=100000$ and $\hat{x}_4=100000$, respectively.
 
 The quantitization parameters directly influence the size of the POMDP's state-space and this effect is discussed in more detail in section~\ref{subsec:statediscovery}.
 
@@ -57,7 +143,7 @@ The extractor's output is a \textit{finite} POMDP. Simulink models may, on the o
 y(t) = t,
 \]
 
-which obviously has a codomain of the same size as the domain, so potentially infinite. In order to be able to produce a \textit{finite} POMDP, meaning a POMDP with a \textit{finite} state space, the extractor requires boundary values for each defined output. Each output value must be given both a minimum and a maximum value that it may not exceed. During the extraction, simulation outputs, and their associated state, are discarded if any one of the output values are outside the defined boundaries.
+which obviously has a codomain of the same size as the domain, so potentially infinite. In order to produce a POMDP with a \textit{finite} state space, the extractor requires boundary values for each defined output. Each output value must be given both a minimum and a maximum value that it may not exceed. During the extraction, simulation outputs, and their associated state, are discarded if any one of the output values are outside the defined boundaries.
 
 This approach does however present a problem. During simulations from a single source state given a single action the system response may sometimes lie within and sometimes outside the boundary. This problem is illustrated in table~\ref{outboundssim}, which contains the results of 10 fictitious simulations from the same source state and using the same action. The stochastic dynamic system sometimes responds with values within and sometimes with values outside of the defined output boundaries. Simply ignoring simulations that result in states outside of the defined boundaries would not accurately reflect the system's dynamics.
 
@@ -65,7 +151,7 @@ This approach does however present a problem. During simulations from a single s
 \begin{center}
     \begin{tabular}{ | l | l | l | l |}
     \hline
-    Simulation & Source State & Action & Sink State \\ \hline
+    Simulation Run & Source State & Action & Sink State \\ \hline
     1 & 22 & 6 & 68 \\ \hline
     2 & 22 & 6 & 67 \\ \hline
     3 & 22 & 6 & 122 \\ \hline
@@ -88,15 +174,15 @@ The solution used by the extraction algorithm is the use of two fictitious state
 P(s' = out-of-bounds|s=22,a=6) = 0.3.
 \]
 
-The reward gained for reaching the out-of-bounds state must be configured in the extrator's parameters.
+The reward gained for reaching the out-of-bounds state must be configured manually in the extrator's parameters.
 
 
 \subsection{Simulation Errors}
 \label{subsec:simerrors}
 
-Similar to the above discussed problem of reaching states outside the permitted boundaries, simulations may also sometimes simply result in errors. Unacceptable input values or combinations thereof, model instability or failed assertions may sometimes lead to simulation errors. Because of the probabilistic nature of the extractor's source models, it is also possible that only a subset of a set of simulations from the same source state and using the same action results in errors. Similarily to the problem of reaching out-of-bounds states, the random occurence of errors cannot simply be ignored, but must rather be reflected in the transition probabilities, observation probabilities and reward model of the extracted POMDP.
+Similar to the above discussed problem of reaching states outside the permitted boundaries, simulations may also sometimes simply result in errors. Unacceptable input values or combinations thereof, model instability or failed assertions may sometimes lead to simulation errors. Because of the probabilistic nature of the extractor's source models, it is also possible that only a subset of a set of simulations from the same source state and using the same action results in errors. Similarily to the problem of reaching out-of-bounds states, the occurence of errors cannot simply be ignored, but must rather be reflected in the transition probabilities, observation probabilities and reward model of the extracted POMDP.
 
-The solution to this problem is the introduction of a fictitious \textit{error state}. This state does not ever serve as a source state for simulations, but is used as sink state for simulations that fail due to errors. As with the out-of-bounds state discussed in section~\ref{subsec:outputboundaries}, the error state has a transition probability of $1$ not to change for any action. As such, random simulation errors can accurately be accounted for in the POMDPs transition probabilities, observation probabilities and reward model.
+The solution to this problem is the introduction of a fictitious \textit{error state}. This state does not ever serve as a source state for simulations, but is used as sink state for simulations that fail due to errors. As with the out-of-bounds state discussed in section~\ref{subsec:outputboundaries}, the error state has a transition probability of $1$ not to change for any action. As such, simulation errors can accurately be accounted for in the POMDPs transition probabilities, observation probabilities and reward model.
 
 The reward associated with reaching the fictitious error state is part of the extractor's configuration parameters.
 
@@ -122,7 +208,7 @@ the action set of an MDP or a POMDP would be defined as the cartesian product of
 
 \begin{align}
 A &=\left \Pi \times \Lambda \times \Gamma \right \nonumber\\
-&=\left \{(p,V,n)\ |\ p\ \in \Pi\ and\ V  \in \Lambda\ and\ n \in \Gamma\},\right \nonumber \\
+&=\left \{(p,V,n)\ |\ p\ \in \Pi,\ V  \in \Lambda,\ n \in \Gamma\},\right \nonumber \\
 where&\left \right \nonumber \\
 \Pi &=\left  [p_{min},(p_{min}+\pi),(p_{min}+2\cdot\pi),\cdots,(p_{min}+(N-1)\cdot\pi),p_{max}] \right \nonumber \\
 \Lambda &=\left  [V_{min},(V_{min}+\lambda),(V_{min}+2\cdot\lambda),\cdots,(V_{min}+(N-1)\cdot\lambda),V_{max}] \right \nonumber \\
@@ -132,7 +218,7 @@ where&\left \right \nonumber \\
 \gamma &=\left \frac{n_{max}-n_{min}}{N_n-1} \right \nonumber
 \end{align}
 
-with $N_i$ being the number of different input values required between the maximum and minimum values of input $x_i$ (see section XXXX discretization). The cardinality of $A$ (ie. the number of actions $a \in A$) is
+with $N_i$ being the number of different input values required between the maximum and minimum values of input $x_i$ (see section~\ref{subsubsec:extractionconfig} for an example). The cardinality of $A$ (ie. the number of actions $a \in A$) is
 
 \[
 |A| = \prod_{i \in I} N_i.
@@ -165,7 +251,7 @@ In this case the number of actions comes to
 |A| = \prod_{i \in (p,V,n)} N_i = N_p \cdot N_V \cdot N_n = 100 \cdot 10 \cdot 5 = 5000.
 \]
 
-The action set produced in this fashion is then used by the extraction algorithm. Implementation details are described in section [XXX].
+The action set produced in this fashion is then used by the extraction algorithm, described above in sections~\ref{subsec:approach} and~\ref{sec:probabilisticsimulation}.
 
 \subsection{State Discovery}
 \label{subsec:statediscovery}
@@ -211,14 +297,14 @@ a = 1.0 & b = 2000
 \end{pmatrix}.
 \]
 
-This is the POMDP's \textit{potential state space}, meaning that an extraction may reach all those states but no more. The \textit{reachable} state space is however often much smaller. The limiting factor is the model. A certain model may never reach some of the states in the potential state space. It may, as a matter of fact, even reach only a tiny subset of it. As such, the extractor is implemented as a \textit{discovering} system that continuously discovers new states and thus builds up its state space gradually.
+This is the POMDP's \textit{potential state space}, meaning that an extraction may reach all those states but no more. The \textit{reachable} state space is however often much smaller. The limiting factor is the dynamic system itself. Certain systems may never reach some of the states in their potential state space. It may, as a matter of fact, even reach only a tiny subset of it. As such, the extractor is implemented as a \textit{discovering} system that continuously discovers new states and thus builds up its state space gradually.
 
 The only negative consequence of this difference between the \textit{potential} and the \textit{reachable state space} is that only a maximum value prediction can be made of the number of simulations required for an extraction. Experience has, however, shown that the ratio of reachable states to potential states can vary greatly, reducing the value of these maximum time predictions. Such a prediction may be ten years although in reality an extraction may only take a few weeks.
 
 \subsection{Probabilistic Simulations}
 \label{sec:probabilisticsimulation}
 
-Markov Processes model probabilistic systems. In order to extract the correct probabilities from the source model, the extractor must run a large enough number of simulations with the same source state and the same action. The number of simulations required to extract the accurate probabilistic nature of the system depends on the system and its inherit randomness. This value cannot be automatically deduced from a system without knowledge of its internal dynamics and must thus be defined as part of the extractor's configuration parameters. The discussion in section XXX, discusses the effect of different numbers of simulation runs on the quality of the extracted Markov Process in representing a source model's actual nature.
+Markov Processes model probabilistic systems. In order to extract the correct probabilities from the source model, the extractor must run a large enough number of simulations with the same source state and the same action. The number of simulations required to extract the accurate probabilistic nature of the system depends on the system and its inherit randomness. This value cannot be automatically deduced from a system without knowledge of its internal dynamics and must thus be defined as part of the extractor's configuration parameters. The discussion in chapter~\ref{discussion}, discusses the effect of different numbers of simulation runs on the quality of the extracted Markov Process in representing a source model's actual nature.
 
 \subsection{Time Steps and Decision Epochs}
 \label{subsec:timestepsdecisionepochs}
@@ -297,6 +383,7 @@ The aim of the following example is to anchor the previously touched upon abstra
 The extractor's source model in this example is a black-box SISO (single input, single output) model. The extractor has no knowledge of the underlying dynamics or the system's domain and codomain.
 
 \subsubsection{Extraction Configuration}
+\label{subsubsec:extractionconfig}
 
 The following configuration options have been chosen for this extraction:
 
@@ -328,7 +415,7 @@ This example does not contain the results of all simulations. Only a subset ther
 \begin{center}
     \begin{tabular}{ | l | l | l | l | l | l |}
     \hline
-    Simulation & Source State & Action & Output Value & Discretized Output Value & Sink State        \\ \hline
+    Simulation Run & Source State & Action & Output Value & Discretized Output Value & Sink State        \\ \hline
     1          & 7            & 2      & n/a          & n/a                      & simulation-error  \\ \hline
     2          & 7            & 2      & 3.4          & 3                        & 7                 \\ \hline
     3          & 7            & 2      & 3.2          & 3                        & 7                 \\ \hline

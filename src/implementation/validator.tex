@@ -1,11 +1,24 @@
 \section{Validator}
 
-The validator is implemented as a single function. It takes a produced MDP or POMDP, a vector containing action indexes, a pre-configured Simulink model and a single configuration parameter, the number of simulations, as arguments and finally produces the comparison metrics discussed in section~\ref{subsec:validatorresults}. The following few paragraphs describe the validator's implementation in a bit more detail.
+The validator is implemented as a single function with the following signature:
+
+\begin{verbatim}
+function compare(model_name, ...
+                 mdp, ...
+                 mdp_init_state, ...
+                 mdp_actions, ...
+                 num_sims, ...
+                 time_steps_per_epoch)
+\end{verbatim}
+
+
+
+ It takes the name of a pre-configured Simulink model, a Markov Decision Process, an index for the Markov Process's initial state, a vector containing action indices for each epoch, the number of required Monte Carlo simulations and the epoch to time step conversion ratio (see section~\ref{subsec:timestepsdecisionepochs}), as arguments and finally produces the comparison metrics discussed in section~\ref{subsec:validationmethodology}. The following few paragraphs describe the validator's implementation in a bit more detail.
 
 Given these parameters the validator first simulates the pre-configured Simulink model the required number of times, storing the output values for later analysis. The model must be pre-configured in the sense that its inputs do not come from the validator, but must rather be implemented as Simulink blocks within the model itself. This approach greatly simplifies the validator's implementation and because of Simulink's large library of signals, all the standard stimulation functions, such as unit steps, impulses and sine functions are easily available. In addition to this, simulation parameters such as start-/end-time must be configured to match the simulation Markov Processes simulation (see section~\ref{subsec:timestepsdecisionepochs}).
 
-Secondly the validator simulates the Markov Process by sampling random numbers and simulating the state transitions for a certain amount of time. The chosen actions are given as a parameter and must match the input signal used by the Simulink model. This may limit the use of compelx input signals such a sine signals unless the Markov Process's action space is detailed enough to represent such a complex input signal.
+Secondly the validator simulates the Markov Process by sampling random numbers and simulating the state transitions for a certain amount of time. The chosen actions are given as a parameter and must match the input signal used by the Simulink model. This may limit the use of complex input signals such a sine signals unless the Markov Process's action space is detailed enough to represent such a complex input signal.
 
-Following the simulations of both the Simulink model and the Markov Process, the `compare' function converts the Simulink model simulations' results to the Markov processes state space and converts the Markov Process' simulation results to continuous values by replacing the states by the discretized (see section~\ref{subsec:outputdiscretization}) output values they represent. The results of all the simulations is now available both in state-space as well as in real-space.
+Following the simulations of both the Simulink model and the Markov Process, the `compare' function converts the Simulink model simulations' results to the Markov processes state space and converts the Markov Process' simulation results to continuous values by replacing the states by the discretized output values they represent (ie. the rounded values, see section~\ref{subsec:outputdiscretization} for more details). The results of all the simulations are then available both in the state space as well as in the continuous number space (actual output values).
 
-Finally the comparison function produces the plots described in section~\ref{subsec:validatorresults} using MATLAB's built-in statistical functions (box plot, correlation coefficients, etc). An example of the produced output can be see in the results discussion in section [XXX].
+Finally the comparison function produces the plots described in section~\ref{subsec:validationmethodology}, using MATLAB's built-in statistical functions (box plot, correlation coefficients, etc). An example of the produced output can be see in the results discussion in chapter~\ref{results}.

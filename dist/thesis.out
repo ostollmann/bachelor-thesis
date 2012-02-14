@@ -1,51 +1,56 @@
-\BOOKMARK [0][]{chapter*.5}{List of Figures}{}% 1
-\BOOKMARK [0][]{chapter*.6}{List of Tables}{}% 2
-\BOOKMARK [0][]{chapter.1}{1 Introduction}{}% 3
-\BOOKMARK [0][]{chapter.2}{2 Motivation}{}% 4
-\BOOKMARK [0][]{chapter.3}{3 Background}{}% 5
-\BOOKMARK [1][]{section.3.1}{3.1 Dynamic Systems}{chapter.3}% 6
-\BOOKMARK [1][]{section.3.2}{3.2 Stochastic Processes}{chapter.3}% 7
-\BOOKMARK [2][]{subsection.3.2.1}{3.2.1 Markov Chains}{section.3.2}% 8
-\BOOKMARK [2][]{subsection.3.2.2}{3.2.2 Markov Decision Processes}{section.3.2}% 9
-\BOOKMARK [2][]{subsection.3.2.3}{3.2.3 Partially Observable Markov Decision Processes}{section.3.2}% 10
-\BOOKMARK [1][]{section.3.3}{3.3 Simulink}{chapter.3}% 11
-\BOOKMARK [0][]{chapter.4}{4 Methodology}{}% 12
-\BOOKMARK [1][]{section.4.1}{4.1 Extraction}{chapter.4}% 13
-\BOOKMARK [2][]{subsection.4.1.1}{4.1.1 Approach}{section.4.1}% 14
-\BOOKMARK [2][]{subsection.4.1.2}{4.1.2 System State and System Output}{section.4.1}% 15
-\BOOKMARK [2][]{subsection.4.1.3}{4.1.3 Output Discretization}{section.4.1}% 16
-\BOOKMARK [2][]{subsection.4.1.4}{4.1.4 Output Boundaries}{section.4.1}% 17
-\BOOKMARK [2][]{subsection.4.1.5}{4.1.5 Simulation Errors}{section.4.1}% 18
-\BOOKMARK [2][]{subsection.4.1.6}{4.1.6 Inputs and Actions}{section.4.1}% 19
-\BOOKMARK [2][]{subsection.4.1.7}{4.1.7 State Discovery}{section.4.1}% 20
-\BOOKMARK [2][]{subsection.4.1.8}{4.1.8 Probabilistic Simulations}{section.4.1}% 21
-\BOOKMARK [2][]{subsection.4.1.9}{4.1.9 Time Steps and Decision Epochs}{section.4.1}% 22
-\BOOKMARK [2][]{subsection.4.1.10}{4.1.10 Markov Property and Model Time Lag}{section.4.1}% 23
-\BOOKMARK [2][]{subsection.4.1.11}{4.1.11 Example}{section.4.1}% 24
-\BOOKMARK [1][]{section.4.2}{4.2 Validation}{chapter.4}% 25
-\BOOKMARK [2][]{subsection.4.2.1}{4.2.1 Approach}{section.4.2}% 26
-\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 MDP/POMDP Simulator}{section.4.2}% 27
-\BOOKMARK [2][]{subsection.4.2.3}{4.2.3 Methodology}{section.4.2}% 28
-\BOOKMARK [2][]{subsection.4.2.4}{4.2.4 Limitations}{section.4.2}% 29
-\BOOKMARK [0][]{chapter.5}{5 Implementation}{}% 30
-\BOOKMARK [1][]{section.5.1}{5.1 Extractor}{chapter.5}% 31
-\BOOKMARK [2][]{subsection.5.1.1}{5.1.1 Extration Class}{section.5.1}% 32
-\BOOKMARK [2][]{subsection.5.1.2}{5.1.2 Simulation Class}{section.5.1}% 33
-\BOOKMARK [2][]{subsection.5.1.3}{5.1.3 Miscellaneous}{section.5.1}% 34
-\BOOKMARK [2][]{subsection.5.1.4}{5.1.4 Extraction Configuration}{section.5.1}% 35
-\BOOKMARK [2][]{subsection.5.1.5}{5.1.5 Model Randomness}{section.5.1}% 36
-\BOOKMARK [1][]{section.5.2}{5.2 Validator}{chapter.5}% 37
-\BOOKMARK [0][]{chapter.6}{6 Results}{}% 38
-\BOOKMARK [1][]{section.6.1}{6.1 Test Model}{chapter.6}% 39
-\BOOKMARK [1][]{section.6.2}{6.2 Stimulation Signals}{chapter.6}% 40
-\BOOKMARK [1][]{section.6.3}{6.3 Simulink Models}{chapter.6}% 41
-\BOOKMARK [1][]{section.6.4}{6.4 Extraction}{chapter.6}% 42
-\BOOKMARK [1][]{section.6.5}{6.5 Validation}{chapter.6}% 43
-\BOOKMARK [1][]{section.6.6}{6.6 Response to Constant Signal}{chapter.6}% 44
-\BOOKMARK [1][]{section.6.7}{6.7 Response to Step Signal}{chapter.6}% 45
-\BOOKMARK [0][]{chapter.7}{7 Discussion}{}% 46
-\BOOKMARK [0][]{chapter.8}{8 Conclusion}{}% 47
-\BOOKMARK [0][]{chapter.9}{9 Outlook}{}% 48
-\BOOKMARK [0][]{appendix.A}{A Appendix}{}% 49
-\BOOKMARK [1][]{section.A.1}{A.1 Item 1}{appendix.A}% 50
-\BOOKMARK [0][]{appendix*.32}{Bibliography}{}% 51
+\BOOKMARK [0][]{chapter*.4}{Table of Contents}{}% 1
+\BOOKMARK [0][]{chapter*.5}{Abbreviations}{}% 2
+\BOOKMARK [0][]{chapter*.6}{List of Figures}{}% 3
+\BOOKMARK [0][]{chapter*.7}{List of Tables}{}% 4
+\BOOKMARK [0][]{chapter.1}{1 Introduction}{}% 5
+\BOOKMARK [0][]{chapter.2}{2 Motivation}{}% 6
+\BOOKMARK [0][]{chapter.3}{3 Background}{}% 7
+\BOOKMARK [1][]{section.3.1}{3.1 Dynamic Systems}{chapter.3}% 8
+\BOOKMARK [1][]{section.3.2}{3.2 Stochastic Processes}{chapter.3}% 9
+\BOOKMARK [2][]{subsection.3.2.1}{3.2.1 Markov Chains}{section.3.2}% 10
+\BOOKMARK [2][]{subsection.3.2.2}{3.2.2 Markov Decision Processes}{section.3.2}% 11
+\BOOKMARK [2][]{subsection.3.2.3}{3.2.3 Partially Observable Markov Decision Processes}{section.3.2}% 12
+\BOOKMARK [1][]{section.3.3}{3.3 Simulink}{chapter.3}% 13
+\BOOKMARK [0][]{chapter.4}{4 Methodology}{}% 14
+\BOOKMARK [1][]{section.4.1}{4.1 Extraction}{chapter.4}% 15
+\BOOKMARK [2][]{subsection.4.1.1}{4.1.1 Approach}{section.4.1}% 16
+\BOOKMARK [2][]{subsection.4.1.2}{4.1.2 Simulink and POMDP Interface}{section.4.1}% 17
+\BOOKMARK [2][]{subsection.4.1.3}{4.1.3 System State and System Output}{section.4.1}% 18
+\BOOKMARK [2][]{subsection.4.1.4}{4.1.4 Output Discretization}{section.4.1}% 19
+\BOOKMARK [2][]{subsection.4.1.5}{4.1.5 Output Boundaries}{section.4.1}% 20
+\BOOKMARK [2][]{subsection.4.1.6}{4.1.6 Simulation Errors}{section.4.1}% 21
+\BOOKMARK [2][]{subsection.4.1.7}{4.1.7 Inputs and Actions}{section.4.1}% 22
+\BOOKMARK [2][]{subsection.4.1.8}{4.1.8 State Discovery}{section.4.1}% 23
+\BOOKMARK [2][]{subsection.4.1.9}{4.1.9 Probabilistic Simulations}{section.4.1}% 24
+\BOOKMARK [2][]{subsection.4.1.10}{4.1.10 Time Steps and Decision Epochs}{section.4.1}% 25
+\BOOKMARK [2][]{subsection.4.1.11}{4.1.11 Markov Property and Model Time Lag}{section.4.1}% 26
+\BOOKMARK [2][]{subsection.4.1.12}{4.1.12 Example}{section.4.1}% 27
+\BOOKMARK [1][]{section.4.2}{4.2 Validation}{chapter.4}% 28
+\BOOKMARK [2][]{subsection.4.2.1}{4.2.1 Approach}{section.4.2}% 29
+\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 MDP/POMDP Simulator}{section.4.2}% 30
+\BOOKMARK [2][]{subsection.4.2.3}{4.2.3 Methodology}{section.4.2}% 31
+\BOOKMARK [2][]{subsection.4.2.4}{4.2.4 Limitations}{section.4.2}% 32
+\BOOKMARK [0][]{chapter.5}{5 Implementation}{}% 33
+\BOOKMARK [1][]{section.5.1}{5.1 Extractor}{chapter.5}% 34
+\BOOKMARK [2][]{subsection.5.1.1}{5.1.1 Extration Class}{section.5.1}% 35
+\BOOKMARK [2][]{subsection.5.1.2}{5.1.2 Simulation Class}{section.5.1}% 36
+\BOOKMARK [2][]{subsection.5.1.3}{5.1.3 Extraction Configuration}{section.5.1}% 37
+\BOOKMARK [2][]{subsection.5.1.4}{5.1.4 Model Randomness}{section.5.1}% 38
+\BOOKMARK [1][]{section.5.2}{5.2 Validator}{chapter.5}% 39
+\BOOKMARK [0][]{chapter.6}{6 Evaluation}{}% 40
+\BOOKMARK [1][]{section.6.1}{6.1 Setup}{chapter.6}% 41
+\BOOKMARK [2][]{subsection.6.1.1}{6.1.1 Test Model}{section.6.1}% 42
+\BOOKMARK [2][]{subsection.6.1.2}{6.1.2 Stimulation Signals}{section.6.1}% 43
+\BOOKMARK [2][]{subsection.6.1.3}{6.1.3 Simulink Models}{section.6.1}% 44
+\BOOKMARK [1][]{section.6.2}{6.2 Result}{chapter.6}% 45
+\BOOKMARK [1][]{section.6.3}{6.3 Evaluation}{chapter.6}% 46
+\BOOKMARK [2][]{subsection.6.3.1}{6.3.1 Response to Constant Signal}{section.6.3}% 47
+\BOOKMARK [2][]{subsection.6.3.2}{6.3.2 Response to Step Signal}{section.6.3}% 48
+\BOOKMARK [0][]{chapter.7}{7 Discussion}{}% 49
+\BOOKMARK [0][]{chapter.8}{8 Conclusion and Outlook}{}% 50
+\BOOKMARK [0][]{appendix.A}{A Appendix}{}% 51
+\BOOKMARK [1][]{section.A.1}{A.1 Parallelization of Simulink Simulations}{appendix.A}% 52
+\BOOKMARK [2][]{subsection.A.1.1}{A.1.1 Basics}{section.A.1}% 53
+\BOOKMARK [2][]{subsection.A.1.2}{A.1.2 Scope Problems}{section.A.1}% 54
+\BOOKMARK [1][]{section.A.2}{A.2 Source Code: Parallel Simulation Function}{appendix.A}% 55
+\BOOKMARK [0][]{appendix*.37}{Bibliography}{}% 56

@@ -1,6 +1,231 @@
 \chapter{Appendix}
+\lstset{ %
+  language=Matlab,                % the language of the code
+  basicstyle=\footnotesize,           % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+}
 
 
 %-----------------------------------------------------
-\section{Item 1}
-Previously, this and that has been done and so on.
+\section{Parallelization of Simulink Simulations}
+\label{app:parallel}
+
+MATLAB offers many parallelization tools ranging from the simple \textif{parfor} loop to the highly-advanced \textit{Parallel Computing Toolbox}. Because of the large number of simulations required for a single POMDP extraction, the idea of taking advantage of these parallelization tools seems obvious. Unfortunately running parallel Simulink simulations is not as easy as it could be. The following two sections discuss the basic parallelization used by the extractor and the main challenge when running parallel simulations: scope. The entire source code of the parallel simulation function used in the main extraction loop (see sections~\ref{subsec:implextrsim} and~\ref{subsec:implextrsimloop}) is available in appendix~\ref{app:parsimcode}.
+
+\subsection{Basics}
+
+The `parallel\_simulations' function parallelizes simulations using MATLAB's `parfor' loop. As can be seen in appendix~\ref{app:parsimcode}, the function actually uses two `parfor' loops. These two loops are necessary because of scope issues discussed in the next section. Below is the source code of the second parallel for loop (without comments and blank lines):
+
+\begin{lstlisting}
+parfor n=1:num_runs
+    assignin('base', 'gbl_t', a_t{n});
+    assignin('base', 'gbl_u', a_u{n});
+    lconf = conf;
+    if catch_exception
+        try
+            sim_out = sim(model_name, lconf);
+            outputs = [sim_out.get('save_out').signals.values];
+            result_state = sim_out.get('save_final');            
+            par_sim_out{n} = {outputs, result_state};
+        catch err
+            par_sim_out{n} = {getReport(err, 'extended')};
+        end
+    else
+        sim_out = sim(model_name, lconf);
+        outputs = [sim_out.get('save_out').signals.values];
+        result_state = sim_out.get('save_final');
+        par_sim_out{n} = {outputs, result_state};
+    end
+end
+\end{lstlisting}
+
+A single simulation is run with the `sim(model\_name),lconf)' function call. It takes the name of a Simulink model in the path and a configuration struct and returns different outputs depending on the configuration. Here simulations are either started within or outside of a try-catch block depending on whether or not the caller wants simulation exceptions to bubble up.
+
+In order to take advantage of the `parfor' loop, MATLAB requires the user to manually start a pool of \textit{MATLAB workers}. This can be done with the `matlabpool' command. The following command starts a local pool with 8 workers (one on each core):
+
+\begin{lstlisting}
+matlabpool local 8;
+\end{lstlisting}
+
+Working parallel code can even be used, without modifications, on a distributed MATLAB cluster, but this topic is far outside the scope of this thesis. More informaion is available on the MathWorks homepage.
+
+
+\subsection{Scope Problems}
+
+Two categories of scope errors were encountered during the implementation of the extractor. The first category has to do with the variables used in `parfor' loops and the second category contains problems concerning Simulink models' scope.
+
+This first category of problems is the reason why the `parallel\_simulations' function contains two `parfor' loops. The two loops handle two different cases. In the first case the simulation does not require an initial state and in the second case it does require an initial state. The scope problems occurs if one tries to implement both cases in a single parfor loop. Before the parfor loop is executed it checks which variables \textit{may} be necessary in the loop. These variable are then passed to the worker process. The problem can be seen in the following example code:
+
+\begin{lstlisting}
+parfor n=1:10
+    if 1
+        sim_without_initstate();
+    else
+        sim_with_initstate(initstate);
+    end
+end
+\end{lstlisting}
+
+Even though the second case (with an initial state) will never occur, the parfor loop still requires that the `initstate' variable be in scope before the loop is executed. This simple problem is the cause of the double loops in the `parallel\_simulations' code.
+
+The second category of difficulties has to do with Simulink scoping issues. Because model's can rely on values defined in the general workspace they will often not immediately work inside a parfor loop. The problem is that the worker does not have access to MATLAB's main workspace. This means that any required variables, libraries and/or submodels must be explicitely passed to the worker process. Line 119 in~\ref{app:parsimcode} shows the first solution to this problem. If a model reads inputs via the workspace (using `from workspace' or root input blocks) these variable must be individually assigned to the worker's own workspace. This is what the call to `assignin' does on line 119. It effectively passes the value of variable `a\_t\{n\}' unto the worker and defines it as `gbl\_t' in the worker's workspace. The Simulink model now has access to the variable in it's worker's workspace.
+
+This approach only works if few variable are required by the model. Unfortunately many larger models require dozens if not hundreds of workspace variables. Such models often rely on \textit{driver} scripts that must be exectued before simulations to load all libraries, submodules and variables into the workspace. The solution in this case, is to run the driver script once, save the entire workspace to a `mat' file and then instruct the model to look for it's variable inside this `mat' file instead of the workspace. This approach works well within parallel loops.
+
+\section{Source Code: Parallel Simulation Function}
+\label{app:parsimcode}
+
+
+
+
+\begin{lstlisting}
+function [par_sim_out] = ...
+    parallel_simulations( ...
+        model_name, ...
+        a_t, ...
+        a_u, ...
+        num_steps, ...
+        num_runs, ...
+        catch_exception, ...
+        a_init_state)
+
+    par_sim_out = cell([0]);
+
+    load_system(model_name);
+   
+
+    % config parameters
+    conf = struct();
+    conf.SaveOutput = 'on';
+    conf.SaveFormat = 'StructureWithTime';
+    conf.OutputSaveName = 'save_out';
+
+    conf.SaveFinalState = 'on';
+    conf.SaveCompleteFinalSimState = 'on';
+    conf.FinalStateName = 'save_final';
+    
+    using_init_state = (nargin == 7);
+
+    conf.LoadExternalInput = 'on';
+    if using_init_state
+        conf.ExternalInput = 'gbl_input_data';
+    else
+        conf.ExternalInput = '[gbl_t, gbl_u]';
+    end
+
+
+    % Set initial state if it is passed to
+    % the function. The stop-time also depends
+    % on whether or not an initial state is used.
+    % If an initial state is used the stop-time
+    % must be adjusted because we no longer
+    % start simulations at t=0, but rather at the
+    % time the initial state save saved at.
+    if using_init_state 
+        conf.LoadInitialState = 'on';
+        conf.InitialState = 'gbl_init_state';
+    else
+        % Must create dummy var here, because
+        % the loop is created and vars assigned
+        % before it knows that it won't ever need
+        % this variable.
+        conf.StopTime = mat2str(num_steps);
+        conf.LoadInitialState = 'off';
+    end
+
+    % Create rand seeds before run
+        
+    % TODO: fix these double loops. The problem is
+    % that is you put the assignin for the init state
+    % in an if checking whether or not we are using
+    % the init state, there will be a matrix size
+    % exceeded error, even when no using init states.
+    % I guess it has to do with pre-loop checks for
+    % the parfor loop (even though the variable wont)
+    % be used.
+    if using_init_state
+
+        parfor n=1:num_runs
+
+            load_system(model_name);
+
+            signal_values = a_u{n};
+            number_of_signals = size(a_u{n},2);
+            number_of_values = size(a_u{n},1);
+
+            input_data = struct();
+            start_time = a_init_state.snapshotTime;
+            end_time   = start_time + num_steps;
+            
+            % Input data struct time values
+            input_data.time = (start_time:1:(end_time-1))';
+            
+            % Input data signals values
+            for n_signal=1:number_of_signals
+                input_data.signals(n_signal).dimensions = 1;
+                input_data.signals(n_signal).values = signal_values(:,n_signal);
+            end
+                        
+            assignin('base', 'gbl_input_data', input_data);
+
+            lconf = conf;
+
+            assignin('base', 'gbl_init_state', ...
+                    a_init_state);   
+
+            lconf.StopTime = mat2str( ...
+                a_init_state.snapshotTime + num_steps);
+    
+            % simulate model
+            if catch_exception
+                try
+                    sim_out = sim(model_name, lconf);
+                    outputs = [sim_out.get('save_out').signals.values];
+                    result_state = sim_out.get('save_final');
+
+                    par_sim_out{n} = {outputs, result_state};
+                catch err
+                    par_sim_out{n} = {getReport(err, 'extended')};
+                end
+            else
+                sim_out = sim(model_name, lconf);
+                outputs = [sim_out.get('save_out').signals.values];
+                result_state = sim_out.get('save_final');
+                
+                par_sim_out{n} = {outputs, result_state};
+            end
+        end
+    else
+        parfor n=1:num_runs
+            assignin('base', 'gbl_t', a_t{n});
+            assignin('base', 'gbl_u', a_u{n});
+
+            lconf = conf;
+
+            % simulate model
+            if catch_exception
+                try
+                    sim_out = sim(model_name, lconf);
+                    outputs = [sim_out.get('save_out').signals.values];
+                    result_state = sim_out.get('save_final');
+                    
+                    par_sim_out{n} = {outputs, result_state};
+                catch err
+                    par_sim_out{n} = {getReport(err, 'extended')};
+                end
+            else
+                sim_out = sim(model_name, lconf);
+                outputs = [sim_out.get('save_out').signals.values];
+                result_state = sim_out.get('save_final');
+                
+                par_sim_out{n} = {outputs, result_state};
+            end % exception catch
+        end
+    end
+end
+\end{lstlisting}
+

@@ -7,13 +7,13 @@ Simulink is also tightly integrated in MATLAB, MathWorks' commercial numerical c
 
 \begin{figure}[simulink_screenshot]
 \begin{center}
-\includegraphics[width=15cm]{media/simulink_screenshot.png}
+\includegraphics[width=16cm]{media/simulink_screen.png}
 \caption{Screenshot of Simulink}
 \label{simulink_screenshot}
 \end{center}
 \end{figure}
 
-Simulink is especially useful for engineers because no programming knowledge is required even for modelling complex dynamic systems (eg. power plants). Default configuration options and an entirely graphical interface hide most implementation details (simulation details, solver types, et). A graphical modelling interface is also useful because it allows a more intuitive understanding of the model, unlike the large mathematical matrices used in Markov Chains, Markov Decision Processes or Partially Observable Markov Decision Processes. Figure~\ref{simulink_screenshot} shows an example of the MATLAB environment, a Simulink model and plots of simulation results.
+Simulink is especially useful for engineers because no programming knowledge is required even for modelling complex dynamic systems (eg. power plants). Default configuration options and an entirely graphical interface hide most implementation details (simulation details, solver types, etc). A graphical modelling interface is also useful because it allows a more intuitive understanding of the model, unlike the large mathematical matrices used in Markov Chains, Markov Decision Processes or Partially Observable Markov Decision Processes. Figure~\ref{simulink_screenshot} shows an example of the MATLAB environment, a Simulink model and plots of simulation results.
 
 Because this work deals extensively with Simulink a short introductory example may be helpful. Figure~\ref{pendumodelscreen} shows the pendulum model from section~\ref{sec:dynamicsystems} (see Figure~\ref{1dpendulum}) implemented in Simulink through a series of integrators, a $sin$ function and two contant parameters, the gravitational acceleration $g$ and the length of the pendulum $l$. The initial phase is set to zero and an initial condition can be defined in either of the two integrators. For this simulation the angular velocity was used as an initial condition and set to $1\frac{rad}{s}$. Figure~\ref{penduresponse} shows two plots of the system response once with a gravitational constant of $9.8\frac{m}{s^2}$ and once with a gravitational constant of $19.6\frac{m}{s^2}$.
 
@@ -30,7 +30,7 @@ Because this work deals extensively with Simulink a short introductory example m
 \begin{center}
 \includegraphics[width=15cm]{media/pendulum_response.png}
 \caption{1D mathematical pendulum response}
-\label{pendu98}
+\label{penduresponse}
 \end{center}
 \end{figure}
 

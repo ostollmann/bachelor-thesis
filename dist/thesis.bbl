@@ -1,14 +1,48 @@
-\begin{thebibliography}{Han98}
+\begin{thebibliography}{RPPCD08}
 
 \bibitem[Han98]{Hansen98}
 Eric~A. Hansen.
 \newblock {Solving POMDPs by Searching in Policy Space}.
 \newblock In {\em UAI}, pages 211--219, 1998.
 
+\bibitem[III]{jos_sine}
+Julius Orion~Smith III.
+\newblock Simulated sine-wave analysis in matlab.
+\newblock Retrieved February 14, 2012, from JOS Website:
+  \url{https://ccrma.stanford.edu/~jos/filters/Simulated_Sine_Wave_Analysis_Matlab.html}.
+
+\bibitem[Lit96]{littman96}
+Michael Littman.
+\newblock {\em Algorithms for Sequential Decision Making}.
+\newblock PhD thesis, Brown University, Computer Science Dept., Providence,
+  1996.
+
+\bibitem[Per91]{ccs}
+George~A. Perdikaris.
+\newblock {\em Computer Controlled Systems: Theory and Application (Intelligent
+  Systems, Control and Automation: Science and Engineering)}.
+\newblock Springer, Berlin, 1991.
+
 \bibitem[Put94]{puterman}
 Matrin~L. Putterman.
 \newblock {\em Markov Decision Processes, Discrete Stochastic Dynamic
   Programming}.
 \newblock Wiley-Interscience, Hoboken, New Jersey, 1994.
+
+\bibitem[RPPCD08]{ross2008online}
+S.~Ross, J.~Pineau, S.~Paquet, and B.~Chaib-Draa.
+\newblock {Online planning algorithms for POMDPs}.
+\newblock {\em Journal of Artificial Intelligence Research}, 32(1):663--704,
+  2008.
+
+\bibitem[SB10]{mdpai}
+Olivier Sigaud and Olivier Buffet.
+\newblock {\em Markov Decision Processes in Artificial Intelligence}.
+\newblock John Wiley & Sons, Hoboken, New Jersey, 2010.
+
+\bibitem[TM07]{physics}
+Paul~A. Tipler and Gene Mosca.
+\newblock {\em Physics for Scientists and Engineers Extended Version}.
+\newblock W. H. Freeman, New York, NY, 2007.
 
 \end{thebibliography}

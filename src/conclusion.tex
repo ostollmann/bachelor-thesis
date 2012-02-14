@@ -1,3 +1,10 @@
-\chapter{Conclusion}
+\chapter{Conclusion and Outlook}
+\label{conclusionoutlook}
 
-This is the "Conclusion" chapter!
+Building on the evaluation discussed in the previous two chapters, this last chapter aims to provide both a conclusion to this work and an outlook for the future.
+
+The promising evaluation results presented in chapter~\ref{results} and discussed in chapter~\ref{discussion} show that this approach has merits, but, as with any complex undertaking, the different effects that different assumptions, model intricacies and exraction configurations have on the quality of the extracted model must be studied in depth before this approach can used in an industrial setting. Interesting approach vectors include comparing Markov Processes extracted with different extraction parameter combinations, inverting the action set before extractions begin, sampling Simulink system state objects instead of repeatedly using a single one, analysing the effect that the number of probabilistic simulations has on the quality of the represented randomness, comparing the effect model complexity has on the transformation quality, etc.
+
+Another possible continuation of this work is the extraction of dynamic systems described not through Simulink models, but other representational forms. Any system description can be used to extract a Markov Decision Process if it fulfills the same requirements as Simulink model, namely the possibility of defining inputs and observing outputs. The outputs must also provide a meaningful description of the system's internal state (section~\ref{subsec:stateoutput}) and the MDP's decision epoch must be longer than the system's internal time lags (section~\ref{markovprop}). If these conditions are met, the transformation of the system into a Markov Decision Process should be possible. Experiments using this approach to extract dynamic systems from other system representation would, without doubt, offer interesting results.
+
+Irrespective of the continued development of this approach, it has shown, that a Monte-Carlo approach to extracting dynamic system behaviour has merit.
