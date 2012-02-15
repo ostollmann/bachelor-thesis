@@ -1,5 +1,9 @@
 \begin{thebibliography}{RPPCD08}
 
+\bibitem[BS]{ballesterostowards}
+A.R. Ballesteros and M.T.J. Spaan.
+\newblock {Towards a POMDP-based Intelligent Assistant for Power Plants}.
+
 \bibitem[Han98]{Hansen98}
 Eric~A. Hansen.
 \newblock {Solving POMDPs by Searching in Policy Space}.

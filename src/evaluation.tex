@@ -65,7 +65,7 @@ The filter was implemented three different times as a Simulink model, once for e
 \begin{center}
 \includegraphics[height=9cm]{media/bw/bw_step_mdl}\\
 \end{center}
-\caption{Implementation of a Butterworth-Filter in Simulink with a scaled step input (step at t=10) MUST FIX FOR 0 BOUND!!}
+\caption{Implementation of a Butterworth-Filter in Simulink with a scaled step input (step at t=10)}
 \label{bw_step_mdl}
 \end{figure}
 
@@ -181,7 +181,7 @@ Similar as for the constant input signal, the discretization does not have a vis
 
 Figure~\ref{bw_val_step_state_corr} shows the correlation between the responses' state space distributions for each epoch. The plot shows that the distributions do not correlate at all, except for epoch 13. The extremely low correlation will be discussed in more detail in chapter~\ref{discussion}, but is likely caused by initial state differences between the models. Similarily to the correlation in the previous section, the correlation also spikes just after the disturbance, indicating that, contrary to steady state, the models' reactions correlate strongly when the system is disturbed.
 
-The plot of real and state output means in figure~\ref{bw_val_step_real_mean} show two interesting effects. Firstly the models seems to diverge even before the disturbance and secondly the systems diverge again after the disturbance. Yet, during the disturbance, the system react similarily. Although this causes for this are discussed in more detail in chapter~\ref{discussion}, this effect may, again, be caused by different inital states and the propagation of uncertainty after the disturbance.
+The plot of real and state output means in figure~\ref{bw_val_step_real_mean} show two interesting effects. Firstly the models seems to diverge even before the disturbance and secondly the systems diverge again after the disturbance. Yet, during the disturbance, the systems react similarily. Although this is discussed in more detail in chapter~\ref{discussion}, this effect may, again, be caused by different inital states and the propagation of uncertainty after the disturbance.
 
 
 

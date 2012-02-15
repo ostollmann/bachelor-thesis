@@ -11,7 +11,7 @@ Chapter~\ref{results} presents an actual extraction result using the \textit{val
 
 \subsection{Approach}
 
-The \textit{validator} measures qualitative difference between two dynamic system descriptions by comparing the responses of the two system to idential stimulation. The approach of analysing the response of a dynamic system to well-defined stimulation comes from the field on control, as this method can often provide insight into the system's behaviour. Linear time-invariant system are, for example, completely defined by their impulse response, ie. the reponse to other input signals can be deduced from the impulse response. Common stimulation signals include the Dirac Delta function, the Heaviside step function, sine functions or white noise.
+The \textit{validator} measures qualitative difference between two dynamic system descriptions by comparing the responses of the two systems to idential stimulation. The approach of analysing the response of a dynamic system to well-defined stimulation comes from the field of control, as this method can often provide insight into the system's behaviour. Linear time-invariant system are, for example, completely defined by their impulse response, ie. the reponse to other input signals can be deduced from the impulse response. Common stimulation signals include the Dirac Delta function, the Heaviside step function, sine functions or white noise.
 
 This approach is based on the assumption that similar responses to identical stimulation implies similar system descriptions. Given that the \textit{extractor} simply transforms a model described in one way (Simulink) to a model described in another way (Markov Process) the response of these two systems should be similar given similar stimulation.
 
@@ -19,9 +19,9 @@ The difference between the responses of both systems may thus be an accurate mea
 
 \subsection{MDP/POMDP Simulator}
 
-In order to compare system reponses, the validator requires the ability to simulate Markov Processes. Given a fully defined MDP or POMDP and a decision array (containing action for each decision epoch), a simulator must produce a response of the system as a historical series of states the process reached.
+In order to compare system reponses, the validator requires the ability to simulate Markov Processes. Given a fully defined MDP or POMDP and a decision array (containing an action for each decision epoch), a simulator must produce a response of the system as a historical series of states the process reached.
 
-Therefore the validator includes an MDP simulator. Given an initial state and action set tuple the simulator samples as follows: at each epoch, a uniformly distributed number between in the range $[0,1]$ is taken, the state the system will transition to in the next epoch is then chosen by comparing the uniform random number to the transition probability's cumulative distribution. This sequential sampling and transitioning loop continues until all actions have been taken and the historical state transitions returned as the simulation output.
+Therefore the validator includes an MDP simulator. Given an initial state and action set tuple the simulator samples as follows: at each epoch, a uniformly distributed number in the range $[0,1]$ is taken, the state the system will transition to in the next epoch is then chosen by comparing the uniform random number to the transition probability's cumulative distribution. This sequential sampling and transitioning loop continues until all actions have been taken and the historical state transitions is returned as the simulation output.
 
 \subsection{Methodology}
 \label{subsec:validationmethodology}
